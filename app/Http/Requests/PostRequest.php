@@ -13,6 +13,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
+        //return $this->isMethod('post');
         return true;
     }
 
@@ -25,10 +26,10 @@ class PostRequest extends FormRequest
     {
         return [
             //記述する場所によって変わりそう。
-            //'username' => 'required|unique:users,username|min:2|max:12',
-            // 'mail' =>  'required|unique:users,mail|email|min:5|max:40',
-            // 'password' => 'required|alpha_num|min:8|max:20',
-            // 'password_confirmation' => 'required|alpha_num|min:8|max:20|confirmed:password',
+            'username' => 'required|unique:users,username|min:2|max:12',
+            'mail' =>  'required|unique:users,mail|email|min:5|max:40',
+            'password' => 'required|alpha_num|min:8|max:20',
+            'password_confirmation' => 'required|alpha_num|min:8|max:20|confirmed:password',
             // $this->validate($request, $rules);
             //
         ];

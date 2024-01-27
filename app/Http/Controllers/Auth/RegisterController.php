@@ -40,6 +40,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    //新規登録画面を表示させる用
+    public function open(){
+     return view('auth.register');
+    }
+
+    //登録する処理
     public function register(PostRequest $request){
         if($request->isMethod('post')){
             $username = $request->input('username');
