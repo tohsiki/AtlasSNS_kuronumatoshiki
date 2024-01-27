@@ -2,8 +2,19 @@
 
 @section('content')
 <!-- 適切なURLを入力してください -->
-<!--inputとtextを入れ替えてみる-->
-{!! Form::open(['url' => '/added']) !!}
+{!! Form::open(['url' => '/register']) !!}
+
+<!--バリデーションのエラーメッセージ-->
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 
 <h2>新規ユーザー登録</h2>
 

@@ -20,11 +20,12 @@
 
 //use Illuminate\Routing\Route;
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
-Route::post('/login', 'Auth\LoginController@login');
+//名前付きルーティングとは
+Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/login', 'Auth\LoginController@login')->name('login');
 
-Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/register', 'Auth\RegisterController@register')->name('register');
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
@@ -42,4 +43,4 @@ Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
 //ログアウトのURLを追加する。
-Route::get('/logout', 'Auth\LoginController@login');
+Route::get('/logout', 'Auth\LoginController@logout');

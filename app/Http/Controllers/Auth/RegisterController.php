@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class RegisterController extends Controller
 {
@@ -39,18 +40,8 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function register(Request $request){
+    public function register(PostRequest $request){
         if($request->isMethod('post')){
-            //記述する場所によって変わりそう。
-            $rules = [
-            'username' => 'required|unique:users,username|min:2|max:12',
-            'mail' =>  'required|unique:users,mail|email|min:5|max:40',
-            'password' => 'required|alpha_num|min:8|max:20',
-            'password_confirmation' => 'required|alpha_num|min:8|max:20|confirmed:password',
-            ];
-
-            $this->validate($request, $rules);
-
             $username = $request->input('username');
             $mail = $request->input('mail');
             $password = $request->input('password');
