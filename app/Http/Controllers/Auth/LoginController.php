@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+//use App\Http\Controllers\Auth;
+//use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class LoginController extends Controller
 {
@@ -41,7 +43,6 @@ class LoginController extends Controller
 
     public function login(Request $request){
         if($request->isMethod('post')){
-
             $data=$request->only('mail','password');
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
@@ -51,4 +52,8 @@ class LoginController extends Controller
         }
         return view("auth.login");
     }
+//気が向いたらログアウト機能作る用
+    //public function logout(){
+
+   // }
 }

@@ -2,7 +2,8 @@
 
 @section('content')
 <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/〇〇']) !!}
+<!--inputとtextを入れ替えてみる-->
+{!! Form::open(['url' => '/added']) !!}
 
 <h2>新規ユーザー登録</h2>
 

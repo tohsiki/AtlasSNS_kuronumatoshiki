@@ -18,7 +18,7 @@
 
 //Auth::routes();
 
-
+//use Illuminate\Routing\Route;
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
@@ -30,7 +30,9 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
+//getとpostの二つを書いたら解決できたよ。
 Route::get('/top','PostsController@index');
+Route::post('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
@@ -38,3 +40,6 @@ Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+
+//ログアウトのURLを追加する。
+Route::get('/logout', 'Auth\LoginController@login');
