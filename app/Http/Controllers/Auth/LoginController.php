@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 //use App\Http\Controllers\Auth;
 //use Illuminate\Support\Facades\Auth as FacadesAuth;
 
@@ -29,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/top';
 
     /**
      * Create a new controller instance.
@@ -47,11 +48,15 @@ class LoginController extends Controller
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){
+                //ログイン成功後にユーザー名をセッションに保存
+                $request->session()->put('username', Auth::user()->name);
+                 $request->session()->put('icon', Auth::user()->images); // iconはユーザーモデルのアイコン属性を指す
                 return redirect('/top');
             }
         }
         return view("auth.login");
     }
+
 //気が向いたらログアウト機能作る用
     public function logout(){
         Auth::logout();

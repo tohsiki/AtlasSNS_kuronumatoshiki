@@ -8,6 +8,11 @@
   <title></title>
   <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/logout.css') }} ">
+
+   <!-- スクリプトの呼び出し -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
+
   <!--スマホ,タブレット対応-->
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <!--サイトのアイコン指定-->
@@ -27,7 +32,8 @@
   <div id="container">
     @yield('content')
   </div>
-  <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="{{ asset('js/script.js') }}"></script>
+
 </body>
 </html>

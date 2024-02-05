@@ -1,15 +1,10 @@
-<?php
-session_start();
-$_SESSION["username"] = "name";
-?>
-
 @extends('layouts.logout')
 
 @section('content')
 
 <div id="clear">
   <!--この文では動かないかも-->
-  <p><?php $_SESSION["name"] ?>さん</p>
+  <p>{{ session('username') }}さん</p>
   <p>ようこそ！AtlasSNSへ！</p>
   <p>ユーザー登録が完了しました。</p>
   <p>早速ログインをしてみましょう。</p>

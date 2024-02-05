@@ -6,7 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\RegisterFormRequest;
 
 class RegisterController extends Controller
 {
@@ -46,12 +46,14 @@ class RegisterController extends Controller
     }
 
     //登録する処理
-    public function register(PostRequest $request){
+    public function register(RegisterFormRequest $request){
         if($request->isMethod('post')){
             $username = $request->input('username');
             $mail = $request->input('mail');
             $password = $request->input('password');
-
+            //セッションの記述
+            $name = request()->input('username');
+            request()->session()->put('username', $name);
             User::create([
                 'username' => $username,
                 'mail' => $mail,
