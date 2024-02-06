@@ -49,7 +49,6 @@ class User extends Authenticatable
     public function isFollow(int $user_id)
 {
     //この文でテーブルとの照らし合わせを行いtrueもしくはfalseを返す
-    //
     return (boolean) $this->follows()->where('followed_id', $user_id)->first();
 
     //  $isFollow = (boolean) Auth::user()->follows()->where('follow_id',$id)->first();

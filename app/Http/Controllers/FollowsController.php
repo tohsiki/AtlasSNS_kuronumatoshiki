@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Follow;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -20,24 +21,27 @@ class FollowsController extends Controller
 
 
     public function follow(Request $request)
-{
-        $follow_id = $request->follow_id;
-        //ログインユーザーが対象のユーザーをフォローしているか？この記述をうまくモデルに当てはめる。→関数を準備する→関数が完成したらコントローラで完成した関数を呼び出す。
-        // モデルが関わっているフォロー機能の参考サイトを探す。
-        // アウトプット練習で聞かれるところ。
-        $follow = new Follow;
-        $isFollow = $follow->isFollow();
-    if($isFollow){
-        $unfollow = Follow::where('following_id', Auth::user()->id)->where('followed_id', $follow_id);
-        $unfollow->delete();
-    }else{
-        $follow = new follow();
-        $follow->following_id = Auth::user()->id;
-        $follow->followed_id = $follow_id;
-        $follow->save();
+    {
+
+        $isFollow = Auth::user()->isFollow($request->follow_id);
+        if(!$isFollow)
+        {
+            $follow = new follow();
+            $follow->following_id = Auth::user()->id;
+            $follow->followed_id = $request->follow_id;
+            $follow->save();
+        }
+        return back();
     }
 
-    return back();
 
-}
+    public function unfollow(Request $request)
+    {
+        $isFollow = Auth::user()->isFollow($request->follow_id);
+        if($isFollow)
+        {
+            Follow::where('following_id', Auth::user()->id)->where('followed_id', $request->follow_id)->delete();
+        }
+        return back();
+    }
 }

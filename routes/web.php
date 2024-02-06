@@ -76,6 +76,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 // フォロー用のルーティングは以下にまとめる。
 // フォロー用のルーティング
 Route::post('/follow', 'FollowsController@follow')->name('follow');
-// フォロー解除用のルーティング
 
+// フォロー解除用のルーティング
+Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
 });

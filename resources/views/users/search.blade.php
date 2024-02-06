@@ -30,19 +30,20 @@
         <figure><img src="{{ asset('images/'. $user->images) }}" alt="User Icon"></figure>
         <div class="search-name">{{$user->username }}</div>
 
-        <form method="POST" action="/follow">
-        @csrf
+        <form method="POST" action="/unfollow">
+                @csrf
         <input name="follow_id" type="hidden" value="{{ $user->id }}" />
         <!-- isFollowがtrueならフォロー解除ボタンを表示、falseならフォローするボタンを表示する。 -->
-        @if($user->isFollow())
           <button type="submit"class="follow-btn">
             フォロー解除</button>
-        @else
-        <button type="submit" class="bg-info text-white follow-btn">
-            フォローする</button>
-        @endif
-        </form>
 
+        </form>
+        <form method="POST" action="/follow">
+                @csrf
+            <input name="follow_id" type="hidden" value="{{ $user->id }}" />
+          <button type="submit" class="bg-info text-white follow-btn">
+            フォローする</button>
+        </form>
       </li>
     </ul>
     <!-- 検索ワードの表示用 -->
