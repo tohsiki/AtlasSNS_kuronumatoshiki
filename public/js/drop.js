@@ -1,26 +1,34 @@
-    $(function(){
-    // 編集ボタン(modalOpen")が押されたら発火
-    $('modalOpen').on('click',function(){
-        // モーダルの中身(class="js-modal")の表示
-        $('drop-menu').fadeIn();
-        // 押されたボタンから投稿内容を取得し変数へ格納
-        var post = $(this).attr('post');
-        // 押されたボタンから投稿のidを取得し変数へ格納（どの投稿を編集するか特定するのに必要な為）
-        var post_id = $(this).attr('post_id');
+let accordionDetails = '.js-details';
+let accordionSummary = '.js-details-summary';
+let accordionContent = '.js-details-content';
+let speed = 500;
 
+$(accordionSummary).each(function() {
+  $(this).on("click", function(event) {
+    // summaryにis-activeクラスを切り替え
+    $(this).toggleClass("is-active");
+    // デフォルトの挙動を無効化
+    event.preventDefault();
 
-        // 取得した投稿内容をモーダルの中身へ渡す
-        $('.modal_post').text(post);
-        // 取得した投稿のidをモーダルの中身へ渡す
-        $('.modal_id').val(post_id);
-        return false;
-    });
-
-
-    // 背景部分や閉じるボタン(js-modal-close)が押されたら発火
-    $('.js-modal-close').on('click',function(){
-        // モーダルの中身(class="js-modal")を非表示
-        $('.js-modal').fadeOut();
-        return false;
-    });
+    if ($(this).parent($(accordionDetails)).attr("open")) {
+      // アコーディオンを閉じるときの処理
+      $(this).nextAll($(accordionContent)).slideUp(speed, function() {
+        // アニメーションの完了後にopen属性を取り除く
+        $(this).parent($(accordionDetails)).removeAttr("open");
+        // display:none;を消して、ページ内検索にヒットするようにする
+        $(this).show();
+      });
+    } else {
+      // アコーディオンを開くときの処理
+      $(accordionSummary).not($(this)).removeClass("is-active");
+      $(accordionContent).not($(this).nextAll($(accordionContent))).slideUp(speed, function() {
+        // アニメーションの完了後、すでに開いているアコーディオンのopen属性を取り除く
+        $(this).parent($(accordionDetails)).removeAttr("open");
+        $(this).show();
+      });
+      // クリックしたアコーディオンを開く
+      $(this).parent($(accordionDetails)).attr("open", "true");
+      $(this).nextAll($(accordionContent)).hide().slideDown(speed);
+    }
+  })
 });

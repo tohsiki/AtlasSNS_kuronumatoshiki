@@ -36,14 +36,19 @@
 
                 <!-- この文では動いていない。被ってるからダメなのか？ -->
                     <p>{{Auth::user()->username}}さん<img src="images/icon1.png"></p>
-                <div class="drop-menu">
-                    <a href="" class="modalOpen"><img src="" alt="">open</a>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
-            </div>
+
+            <details class="details js-details">
+                <summary class="details-summary js-details-summary"><span class="btn"></span></summary>
+                    <div class="details-content js-details-content">
+                       <ul>
+                        <li><a href="/top">ホーム</a></li>
+                        <li><a href="/profile">プロフィール</a></li>
+                        <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </div>
+            </details>
+
+
         </div>
     </header>
     <div id="row">

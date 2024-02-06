@@ -34,7 +34,7 @@
         @csrf
         <input name="follow_id" type="hidden" value="{{ $user->id }}" />
         <!-- isFollowがtrueならフォロー解除ボタンを表示、falseならフォローするボタンを表示する。 -->
-        @if($user->test())
+        @if($user->isFollow())
           <button type="submit"class="follow-btn">
             フォロー解除</button>
         @else

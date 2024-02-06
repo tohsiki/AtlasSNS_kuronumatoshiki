@@ -63,6 +63,10 @@ header{
   width:30px;
 }
 
+.trash-hover:hover{
+  background-image:url('images/trash-h.png');
+}
+
 .search-block{
   list-style:none;
   display:flex;
@@ -72,6 +76,8 @@ header{
 .search-name{
    padding:20px;
 }
+
+/* アコーディオンメニュー用 */
 
 
 

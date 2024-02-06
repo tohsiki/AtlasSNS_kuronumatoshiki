@@ -50,10 +50,11 @@
                   {{ Form::open(['url' => '/posts/'.$post->id.'/delete', 'method' => 'get']) }}
                   {{ csrf_field() }}
                     <!-- 投稿を削除するボタン トラッシュ絵文字はbi bi-trash -->
-                    {!! Form::image('images/trash.png', 'submit', ['class' => 'submit-button', 'onclick' => "return confirm('本当に削除します？')"]) !!}
+                    {!! Form::image('images/trash.png', 'submit', ['class' => 'submit-button trash-hover', 'onclick' => "return confirm('本当に削除します？')"]) !!}
+
                 {{ Form::close() }}
               @endif
-            </div>
+            </>
 
           </div>
       </li>
