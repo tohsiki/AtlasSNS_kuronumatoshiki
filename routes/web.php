@@ -42,12 +42,10 @@ Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@index');
 
 
-// // 投稿の削除
-// Route::get('/post/delete/{id}', 'PostsController@delete')->name('post.delete');
-
-Route::post('/profile','UsersController@profile');
-Route::get('/profile','UsersController@profile');
-
+// ログインしているユーザーのプロフィール
+Route::get('/profiles','UsersController@profile');
+Route::post('/profiles','UsersController@profile');
+Route::get('/profile/{id}', 'UsersController@upProfile');
 
 //メソッドをindex→searchに変更
 Route::get('/search','UsersController@search');

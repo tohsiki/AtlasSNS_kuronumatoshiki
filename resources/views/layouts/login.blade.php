@@ -42,7 +42,7 @@
                     <div class="details-content js-details-content">
                        <ul>
                         <li><a href="/top">ホーム</a></li>
-                        <li><a href="/profile">プロフィール</a></li>
+                        <li><a href="/profile/{{Auth::user()->id}}">プロフィール</a></li>
                         <li><a href="/logout">ログアウト</a></li>
                         </ul>
                     </div>

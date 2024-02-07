@@ -30,6 +30,8 @@
         <figure><img src="{{ asset('images/'. $user->images) }}" alt="User Icon"></figure>
         <div class="search-name">{{$user->username }}</div>
 
+
+        <!-- ここにif文を追加してフォロー機能ができたら確認する。 -->
         <form method="POST" action="/unfollow">
                 @csrf
         <input name="follow_id" type="hidden" value="{{ $user->id }}" />

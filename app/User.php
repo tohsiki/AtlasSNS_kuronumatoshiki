@@ -36,21 +36,22 @@ class User extends Authenticatable
     public function follows()
     {
         // userテーブルのidに別の名前をつけたい。
-        return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id')->select("users.id AS user_id" , 'follows.following_id' , 'follows.following_id' , 'follows.followed_id');
+        return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id');
     }
 
     // フォロー→フォロワー
     public function follower()
     {
-        return $this->belongsToMany('App\User', 'follows', 'following_id','followed_id')->select("users.id AS user_id" , 'follows.following_id' , 'follows.following_id' , 'follows.followed_id');
+        return $this->belongsToMany('App\User', 'follows', 'following_id','followed_id');
     }
+
 
 
     public function isFollow(int $user_id)
 {
     //この文でテーブルとの照らし合わせを行いtrueもしくはfalseを返す
-    return (boolean) $this->follows()->where('followed_id', $user_id)->first();
-
+    // return (boolean) $this->follows()->where('followed_id', $user_id)->first();
+     return (bool) $this->follows()->where('followed_id', $user_id)->exists();
     //  $isFollow = (boolean) Auth::user()->follows()->where('follow_id',$id)->first();
     // (boolean) Follow::where('following_id', Auth::user()->id)->where('followed_id', $id)->first();
 }

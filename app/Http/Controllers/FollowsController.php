@@ -38,6 +38,7 @@ class FollowsController extends Controller
     public function unfollow(Request $request)
     {
         $isFollow = Auth::user()->isFollow($request->follow_id);
+        dd($isFollow);
         if($isFollow)
         {
             Follow::where('following_id', Auth::user()->id)->where('followed_id', $request->follow_id)->delete();
