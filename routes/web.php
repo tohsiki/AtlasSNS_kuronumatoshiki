@@ -43,17 +43,20 @@ Route::post('/top','PostsController@index');
 
 
 // ログインしているユーザーのプロフィール
-Route::get('/profiles','UsersController@profile');
-Route::post('/profiles','UsersController@profile');
-Route::get('/profile/{id}', 'UsersController@upProfile');
+Route::get('/profile','UsersController@profile');
+// Route::post('/profiles','UsersController@profile');
+Route::post('/profile/update', 'UsersController@upProfile');
+
+// 他ユーザーのプロフィールに飛ぶルーティング
+Route::get('/user/profile/{id}','UsersController@userProfile');
 
 //メソッドをindex→searchに変更
 Route::get('/search','UsersController@search');
 Route::post('/search','UsersController@search');
 
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','FollowsController@followList');
+Route::get('/follower-list','FollowsController@followerList');
 
 //投稿を処理するRouteを作る
 Route::get('/post','PostsController@post');

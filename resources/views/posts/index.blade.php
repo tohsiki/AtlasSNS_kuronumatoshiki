@@ -24,7 +24,7 @@
   {!! Form::close() !!}
 </div>
 
-  @foreach($posts as $post)
+  @foreach($followed_post as $post)
   <div>
     <ul>
       <li class="post-block">
@@ -54,12 +54,12 @@
 
                 {{ Form::close() }}
               @endif
-            </>
-
+            </div>
           </div>
       </li>
     </ul>
   </div>
+
   @endforeach
  <!-- モーダルの中身 -->
   <!-- モーダルの中にupdate用の記述を書く -->

@@ -29,23 +29,28 @@ class User extends Authenticatable
     public function post()
     {
         return $this ->hasMany('App\Post');
+        return $this ->belongsTo('App\Post');
     }
+    //  public function posts()
+    // {
+    //     return $this ->belongsTo('App\Post');
+    // }
 
     // フォロー機能用　ここを
     // フォロワー→フォロー
+    // フォローリストの表示でも使う。
     public function follows()
     {
         // userテーブルのidに別の名前をつけたい。
-        return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id');
+        return $this->belongsToMany('App\User', 'follows', 'following_id','followed_id');
     }
 
     // フォロー→フォロワー
     public function follower()
     {
-        return $this->belongsToMany('App\User', 'follows', 'following_id','followed_id');
+        return $this->belongsToMany('App\User', 'follows', 'followed_id','following_id');
+        // return $this->belongsToMany('App\User', 'follows', 'following_id','followed_id');
     }
-
-
 
     public function isFollow(int $user_id)
 {
@@ -55,10 +60,5 @@ class User extends Authenticatable
     //  $isFollow = (boolean) Auth::user()->follows()->where('follow_id',$id)->first();
     // (boolean) Follow::where('following_id', Auth::user()->id)->where('followed_id', $id)->first();
 }
-
-
-
-
-
 
 }

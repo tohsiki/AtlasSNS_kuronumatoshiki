@@ -20,37 +20,38 @@
 
 
 <!-- ②ユーザーの一覧　（あいまい検索後にしぼ込まれる機能付き） -->
+<!-- ログインしているユーザーは表示しないようにif文をつける。 -->
 @foreach($users as $user)
+@if($user->id !== Auth::user()->id)
   <!-- 要素を真ん中に寄せる用 -->
   <div>
     <!-- アイコンと名前を横並びにする用 -->
     <ul>
       <!-- display:flex当てる用 -->
       <li class="search-block">
-        <figure><img src="{{ asset('images/'. $user->images) }}" alt="User Icon"></figure>
+        <figure><a href="/user/profile/{{$user->id}}"><img src="{{ asset('images/'. $user->images) }}" alt="User Icon"></a></figure>
         <div class="search-name">{{$user->username }}</div>
-
-
         <!-- ここにif文を追加してフォロー機能ができたら確認する。 -->
+        @if(Auth::user()->isFollow($user->id))
         <form method="POST" action="/unfollow">
                 @csrf
-        <input name="follow_id" type="hidden" value="{{ $user->id }}" />
-        <!-- isFollowがtrueならフォロー解除ボタンを表示、falseならフォローするボタンを表示する。 -->
-          <button type="submit"class="follow-btn">
-            フォロー解除</button>
-
+          <input name="follow_id" type="hidden" value="{{ $user->id }}" />
+          <!-- isFollowがtrueならフォロー解除ボタンを表示、falseならフォローするボタンを表示する。 -->
+          <button type="submit"class="btn btn-danger follow-btn">フォロー解除</button>
         </form>
+        @else
         <form method="POST" action="/follow">
-                @csrf
-            <input name="follow_id" type="hidden" value="{{ $user->id }}" />
-          <button type="submit" class="bg-info text-white follow-btn">
-            フォローする</button>
+              @csrf
+          <input name="follow_id" type="hidden" value="{{ $user->id }}" />
+          <button type="submit" class="btn btn-primary  follow-btn">フォローする</button>
         </form>
+        @endif
       </li>
     </ul>
     <!-- 検索ワードの表示用 -->
 
   </div>
+  @endif
 @endforeach
 
 

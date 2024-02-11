@@ -80,6 +80,17 @@ header{
 /* アコーディオンメニュー用 */
 
 
+/* プロフィールページ用 */
+.profile-content{
+  width:50%;
+  padding:15px;
+}
+
+.profile-content > div{
+  display:flex;
+  justify-content:space-between;
+}
+
 
 
 /* 編集ボタンのモーダル用 */
@@ -117,7 +128,7 @@ header{
 }
 
 .follow-btn{
-border-radius: 10px;
+border-radius: 40px;
 }
 
 .search{

@@ -4,16 +4,22 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
+use App\Follow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostRequest;
 
 class PostsController extends Controller
 {
-    //
+    //追加する条件：ログインしているユーザーのid=following_idの時のfollowed_idの投稿とログインしているユーザーの投稿を引っ張ってくる。
     public function index(){
-        $posts = Post::get();
-        return view('posts.index',['posts'=>$posts]);
+        $posts = Post::with('user')->get();
+        $followed_id = Auth::user()->follows()->pluck('followed_id');
+        $followed_user = User::whereIn('id',$followed_id)->get();
+        $followed_post = Post::with('user')->whereIn('user_id',$followed_id)->get();
+        // dd( $followed_id,$followed_user,$followed_post);
+        return view('posts.index',['posts'=>$posts,'followed_user'=>$followed_user,'followed_post'=>$followed_post]);
     }
 
     public function post(PostRequest $request){

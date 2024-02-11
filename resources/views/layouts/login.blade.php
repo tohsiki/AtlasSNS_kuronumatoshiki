@@ -30,19 +30,17 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png" class="logo-image"></a></h1>
+        <h1><a href="/top"><img src="{{asset('images/atlas.png')}}" class="logo-image"></a></h1>
             <div id="head-parts">
                 <div id="">
-
                 <!-- この文では動いていない。被ってるからダメなのか？ -->
-                    <p>{{Auth::user()->username}}さん<img src="images/icon1.png"></p>
-
+                    <p>{{Auth::user()->username}}さん<img src="{{asset('images/icon1.png')}}"></p>
             <details class="details js-details">
                 <summary class="details-summary js-details-summary"><span class="btn"></span></summary>
                     <div class="details-content js-details-content">
                        <ul>
                         <li><a href="/top">ホーム</a></li>
-                        <li><a href="/profile/{{Auth::user()->id}}">プロフィール</a></li>
+                        <li><a href="/profile">プロフィール</a></li>
                         <li><a href="/logout">ログアウト</a></li>
                         </ul>
                     </div>

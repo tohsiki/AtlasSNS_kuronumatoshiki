@@ -12,6 +12,10 @@ class Follow extends Model
     // // テーブル名を定義
      protected $table = 'follows';
 
+     public function followingIds(Int $user_id)
+  {
+      return $this->where('following_id', $user_id)->get();
+  }
 
 //
 
