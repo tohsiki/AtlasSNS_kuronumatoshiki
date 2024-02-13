@@ -15,10 +15,14 @@ class PostsController extends Controller
     //追加する条件：ログインしているユーザーのid=following_idの時のfollowed_idの投稿とログインしているユーザーの投稿を引っ張ってくる。
     public function index(){
         $posts = Post::with('user')->get();
-        $followed_id = Auth::user()->follows()->pluck('followed_id');
+        $followed_id = Auth::user()->follows()->pluck('followed_id')->toArray();
+        $login_user = Auth::user()->id;
         $followed_user = User::whereIn('id',$followed_id)->get();
-        $followed_post = Post::with('user')->whereIn('user_id',$followed_id)->get();
-        // dd( $followed_id,$followed_user,$followed_post);
+        // $followed_user = User::with('post')->whereIn('id',[ $login_user,$followed_id])->get();
+        // ここにログインしているユーザー
+        // $followed_post = Post::with('user')->whereIn('user_id',[ $login_user,$followed_id])->get();
+        $followed_post = Post::with('user')->whereIn('user_id', array_merge($followed_id, [$login_user]))->get();
+
         return view('posts.index',['posts'=>$posts,'followed_user'=>$followed_user,'followed_post'=>$followed_post]);
     }
 

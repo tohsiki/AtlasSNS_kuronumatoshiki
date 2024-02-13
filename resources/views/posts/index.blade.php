@@ -11,25 +11,29 @@
         </div>
   @endif
 
+
   <div class="post-form">
-  <!-- 投稿用の処理 -->
-  {!! Form::open(['url' => '/post']) !!}
-  <!-- ログインユーザーのアイコンを表示 -->
-  <img src="{{asset('images/'.Auth::user()->images)}}" alt="User Icon">
-  <!-- nullの左横にはname属性の値を入れる。 -->
-  {{Form::text('post', null,['class' => 'input' ])}}
-  <!-- 画像を埋め込みたい -->
-  {!! Form::image('images/post.png', 'submit', ['class' => 'submit-button']) !!}
-  <!-- 投稿を表示させる処理 -->
-  {!! Form::close() !!}
+    <div>
+      <!-- 投稿用の処理 -->
+        {!! Form::open(['url' => '/post']) !!}
+        <!-- ログインユーザーのアイコンを表示 -->
+        <img src="{{asset('images/'.Auth::user()->images)}}" alt="User Icon">
+        <!-- nullの左横にはname属性の値を入れる。 -->
+        {{Form::text('post', null,['class' => 'post-input','placeholder' => '投稿内容を入力してください。'])}}
+        <!-- 画像を埋め込みたい -->
+        {!! Form::image('images/post.png', 'submit', ['class' => 'submit-button']) !!}
+        <!-- 投稿を表示させる処理 -->
+        {!! Form::close() !!}
+    </div>
 </div>
+
 
   @foreach($followed_post as $post)
   <div>
     <ul>
       <li class="post-block">
         <!-- アイコン -->
-        <figure><img src="{{ asset('images/' . $post->user->images) }}" alt="User Icon"></figure>
+        <figure><img src="{{ asset('images/' . $post->user->images) }}" alt="User Icon" class="index-usericon"></figure>
         <div class="post-content">
           <div>
             <!-- ユーザー名と投稿日時を表示する -->
@@ -42,7 +46,7 @@
             <div class="index-button">
               @if (Auth::user()->id == $post->user_id)
                 <div class="conten update-button">
-                  <a class="js-modal-open upbutton" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png" alt="編集" class="submit-button"></a>
+                  <a class="js-modal-open upbutton" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png" alt="編集" class="form-button"></a>
                 </div>
               @endif
 
@@ -50,8 +54,7 @@
                   {{ Form::open(['url' => '/posts/'.$post->id.'/delete', 'method' => 'get']) }}
                   {{ csrf_field() }}
                     <!-- 投稿を削除するボタン トラッシュ絵文字はbi bi-trash -->
-                    {!! Form::image('images/trash.png', 'submit', ['class' => 'submit-button trash-hover', 'onclick' => "return confirm('本当に削除します？')"]) !!}
-
+                    {!! Form::image('images/trash.png', 'submit', ['class' => 'form-button trash-hover', 'onclick' => "return confirm('本当に削除します？')"]) !!}
                 {{ Form::close() }}
               @endif
             </div>

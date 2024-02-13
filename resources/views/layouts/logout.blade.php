@@ -22,6 +22,10 @@
   <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
   <!--iphoneのアプリアイコン指定-->
   <link rel="apple-touch-icon-precomposed" href="画像のURL" />
+
+     <!-- Bootstrapの読み込み -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
   <!--OGPタグ/twitterカード-->
 </head>
 <body>

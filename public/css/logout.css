@@ -29,9 +29,53 @@ header img {
     }
 
 #container{
-    width:150px;
-    height:120px;
+    width:180px;
+    height:140px;
     /* background-color:#4773ff; */
     margin:0 auto;
     color: white;
 }
+
+.login-form{
+      background-color:rgba(128, 128, 128, 0.5);
+      border-radius: 10px;
+    }
+
+    .login-content{
+        padding-top:20px ;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    .login-mail{
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+
+    .mail-label{
+        font-size: 13px;
+    }
+
+    .login-pass{
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+
+    .pass-label{
+        font-size: 13px;
+    }
+
+    .login-button{
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    .login-register{
+        font-size: 13px;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .login-register a{
+        color: white;
+    }

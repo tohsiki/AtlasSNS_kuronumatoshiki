@@ -23,22 +23,72 @@ header{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
+#head{
+  display: flex;
+}
+
+
+#head-parts{
+  padding-left:850px;
+}
+
+.head-name{
+  color: #f1f1f1;
+}
+
+.list-button{
+  text-align: right;
+}
 
 
 /* レイアウト-ログイン */
 .logo-image{
-  width: 150px;
+  width: 120px;
+  margin:20px 0 0 50px;
+
 }
 
 #head-parts{
-  text-align: right;
 }
+
+#head-item{
+  display: flex;
+}
+
+.confirm-follow{
+  display: flex;
+}
+
+
+.confirm-button{
+  color: #fff;
+}
+
+
+#confirm{
+  border-bottom: 1px solid #000;
+}
+
+.confirm-search{
+  margin: 0 auto;
+}
+
+.search-page{
+  margin:30px 0 0 65px;
+}
+
+
 /* 投稿一覧 */
 .post-block{
   list-style:none;
   border-bottom:1px solid #000;
   display:flex;
+  padding: 10px 10px 10px 10px 10px;
+  font-size: 90%;
+  padding-left: 30px;
 }
+
+
 
 .post-content{
   width:100%;
@@ -55,16 +105,73 @@ header{
 }
 
 .post-form{
-  border-bottom:1px solid #000;
+  border-bottom:4px solid #d3d3d3;
   display:flex;
+  height: 150px;
+
+  padding-left: 30px;
+}
+
+.post-form img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-input {
+  height:100px; /* 入力欄の高さ */
+  width:800px;
+  padding: 40px; /* 入力欄の余白 */
+  border: none; /* 入力欄の枠線 */
+  border-radius: 5px; /* 入力欄の角丸 */
+}
+
+.index-button{
+
+}
+
+.form-control{
+  border: none;
+}
+
+
+.form-button{
+width:20px;
 }
 
 .submit-button{
-  width:30px;
+
+  width:35px;
 }
 
 .trash-hover:hover{
   background-image:url('images/trash-h.png');
+}
+
+/* ユーザー検索画面のcss */
+.search{
+  border-bottom:4px solid #d3d3d3;
+  height: 180px;
+  padding-left: 30px;
+  margin-bottom: 20px;
+
+}
+
+.search-form{
+  padding: 65px 0;
+  padding-left:60px;
+  display:flex;
+}
+
+.search-input{
+  height:40px;
+  border:1px solid  #696969;
+}
+
+.search-button{
+  height: 55px;
+  padding-top: 20px;
 }
 
 .search-block{
@@ -73,10 +180,36 @@ header{
   padding-left: 150px;
 }
 
-.search-name{
-   padding:20px;
+.search-items{
+   justify-content: space-around;
 }
 
+.search-name{
+   padding:20px 40px 20px 30px;
+}
+
+.search-list{
+  justify-content: flex-start;
+  padding-left: 100px;
+}
+
+.search-list form:last-of-type{
+  margin-left: auto;
+  padding-right:350px;
+  padding-top: 10px;
+}
+
+
+.userfollow-btn{
+  padding-top: 80px;
+  padding-left: 300px;
+}
+
+
+
+.follow-btn{
+border-radius: 40px;
+}
 /* アコーディオンメニュー用 */
 
 
@@ -102,7 +235,7 @@ header{
 
 .upbutton{
   display: block;
-  padding-left :850px ;
+  padding-left :780px ;
 }
 .modal{
     display: none;
@@ -127,18 +260,55 @@ header{
     width: 60%;
 }
 
-.follow-btn{
-border-radius: 40px;
-}
-
-.search{
-  display: flex;
-}
-
-.search-button{
- color: #fff;
-}
-
 .confirm{
-margin:0 auto;
+  margin:0 auto;
+
 }
+
+
+/* ヘッダーのドロップダウンメニュー */
+/* menuSubを非表示にしている処理と位置を調整している。 */
+.menuSub {
+        display: none;
+        position: absolute;
+        top: 72px;
+        right: 40px;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        text-align: center;
+        width: 130px;
+    }
+
+    .menuSub_item {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        color: #333;
+    }
+
+    .menuSub_item:hover {
+        background-color: #000080;
+        color: #f1f1f1;
+    }
+
+    .menuSub_item a:hover{
+       color: #f1f1f1;
+    }
+
+    /* .menu-item:hover .menuSub {
+        display: block;
+    } */
+
+    .menu-item::after {
+      content: '\25BC';
+      margin-left: 5px;
+    }
+
+
+   /* .menu-item::after{
+    margin-left: 5px;
+    border-bottom: solid 3px #fff;
+    border-radius: 3px;
+  } */

@@ -22,20 +22,23 @@
       <div>{{$user_profile->bio }}</div>
     </div>
   </div>
-  @if(Auth::user()->isFollow($user_profile->id))
-      <form method="POST" action="/unfollow">
+  <div class="userfollow-btn">
+    @if(Auth::user()->isFollow($user_profile->id))
+      <form method="POST" action="/unfollow" >
                 @csrf
         <input name="follow_id" type="hidden" value="{{ $user_profile->id }}" />
         <!-- isFollowがtrueならフォロー解除ボタンを表示、falseならフォローするボタンを表示する。 -->
-        <button type="submit"class="btn btn-danger follow-btn">フォロー解除</button>
+        <button type="submit"class="btn btn-danger follow-btn userfollow-btn">フォロー解除</button>
       </form>
   @else
       <form method="POST" action="/follow">
               @csrf
         <input name="follow_id" type="hidden" value="{{ $user_profile->id }}" />
-        <button type="submit" class="btn btn-primary  follow-btn">フォローする</button>
+        <button type="submit" class="btn btn-primary  follow-btn userfollow-btn">フォローする</button>
       </form>
   @endif
+  </div>
+
 </div>
 
 

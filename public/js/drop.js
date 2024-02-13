@@ -1,34 +1,37 @@
-let accordionDetails = '.js-details';
-let accordionSummary = '.js-details-summary';
-let accordionContent = '.js-details-content';
-let speed = 500;
+$(function() {
+    $(".menu-item").click(function() {
+        var menuSub = $(".menuSub", this);
+        if (menuSub.is(":visible")) {
+            menuSub.slideUp();
+            $(".menuSub_item").removeClass("active");
+        } else {
+            $(".menuSub").slideDown();
+            $(".menuSub_item").removeClass("active");
+            $(".menuSub_item", this).addClass("active");
+        }
+    });
+});
 
-$(accordionSummary).each(function() {
-  $(this).on("click", function(event) {
-    // summaryにis-activeクラスを切り替え
-    $(this).toggleClass("is-active");
-    // デフォルトの挙動を無効化
-    event.preventDefault();
-
-    if ($(this).parent($(accordionDetails)).attr("open")) {
-      // アコーディオンを閉じるときの処理
-      $(this).nextAll($(accordionContent)).slideUp(speed, function() {
-        // アニメーションの完了後にopen属性を取り除く
-        $(this).parent($(accordionDetails)).removeAttr("open");
-        // display:none;を消して、ページ内検索にヒットするようにする
-        $(this).show();
-      });
+$(function () {
+  $('.menu-trigger').click(function () {
+    //ハンバーガーボタン（.menu-trigger）をタップすると、
+    $(this).toggleClass('active');
+    //タップしたハンバーガーボタン（.menu-trigger）に（.active）を追加・削除する。
+    if ($(this).hasClass('active')) {
+      //もし、ハンバーガーボタン（.menu-trigger）に（.active）があれば、
+      $('.g-navi').addClass('active');
+      //(.g-navi)にも（.active）を追加する。
     } else {
-      // アコーディオンを開くときの処理
-      $(accordionSummary).not($(this)).removeClass("is-active");
-      $(accordionContent).not($(this).nextAll($(accordionContent))).slideUp(speed, function() {
-        // アニメーションの完了後、すでに開いているアコーディオンのopen属性を取り除く
-        $(this).parent($(accordionDetails)).removeAttr("open");
-        $(this).show();
-      });
-      // クリックしたアコーディオンを開く
-      $(this).parent($(accordionDetails)).attr("open", "true");
-      $(this).nextAll($(accordionContent)).hide().slideDown(speed);
+      //それ以外の場合は、
+      $('.g-navi').removeClass('active');
+      //(.g-navi)にある（.active）を削除する。
     }
-  })
+  });
+  $('.nav-wrapper ul li a').click(function () {
+    //各メニューリンク（.nav-wrapper ul li a）をタップすると、
+    $('.menu-trigger').removeClass('active');
+    //ハンバーガーボタン（.menu-trigger）にある（.active）を削除する。
+    $('.g-navi').removeClass('active');
+    //(.g-navi)にある（.active）も削除する。
+  });
 });

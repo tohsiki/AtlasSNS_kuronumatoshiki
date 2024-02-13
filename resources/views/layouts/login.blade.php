@@ -30,51 +30,61 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="{{asset('images/atlas.png')}}" class="logo-image"></a></h1>
+            <h1><a href="/top"><img src="{{asset('images/atlas.png')}}" class="logo-image"></a></h1>
             <div id="head-parts">
-                <div id="">
-                <!-- この文では動いていない。被ってるからダメなのか？ -->
-                    <p>{{Auth::user()->username}}さん<img src="{{asset('images/icon1.png')}}"></p>
-            <details class="details js-details">
-                <summary class="details-summary js-details-summary"><span class="btn"></span></summary>
-                    <div class="details-content js-details-content">
-                       <ul>
-                        <li><a href="/top">ホーム</a></li>
-                        <li><a href="/profile">プロフィール</a></li>
-                        <li><a href="/logout">ログアウト</a></li>
+                <div id="head-item">
+
+                    <p class="head-name">{{Auth::user()->username}}     さん</p>
+                    <!-- モーダル機能を作る -->
+
+                    <nav>
+                        <ul class="menu">
+                            <li class="menu-item">
+                                <ul class="menuSub">
+                                    <li class="menuSub_item"><a href="/top">ホーム</a></li>
+                                    <li class="menuSub_item"><a href="/profile">プロフィール</a></li>
+                                    <li class="menuSub_item"><a href="/logout">ログアウト</a></li>
+                                </ul>
+                            </li>
                         </ul>
-                    </div>
-            </details>
-
-
+                    </nav>
+                    <img src="{{asset('images/icon1.png')}}">
+                </div>
+            </div>
         </div>
     </header>
-    <div id="row">
-        <div id="container">
-            @yield('content')
-        </div >
-        <div id="side-bar">
-            <div id="confirm">
-                <p>{{Auth::user()->username}}さんの</p>
-                <div>
-                <p>フォロー数</p>
-                <p>〇〇名</p>
-                </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                <p>名</p>
-                </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+        <div id="row">
+            <div id="container">
+                @yield('content')
+            </div >
+            <div id="side-bar">
+                    <div id="confirm">
+                        <p>{{Auth::user()->username}}さんの</p>
+                        <div class="confirm-follow">
+                            <p>フォロー数</p>
+                            <p>{{ Auth::user()->follows()->get()->count() }}名</p>
+                        </div>
+                            <p class="btn btn-primary index-button"><a href="/follow-list" class="confirm-button">フォローリスト</a></p>
+                        <div class="confirm-follow">
+                            <p>フォロワー数</p>
+                            <p>{{ Auth::user()->follower()->get()->count() }}名</p>
+                        </div>
+                            <p class="btn btn-primary index-button"><a href="/follower-list" class="confirm-button">フォロワーリスト</a></p>
+                    </div>
+                    <div class="confirm-search">
+                        <p class="btn btn-primary post_del_btn search-page"><a class=" confirm-button" href="/search">ユーザー検索</a></p>
+                    </div>
             </div>
-            <p class="btn btn-primary post_del_btn"><a class="search-button" href="/search">ユーザー検索</a></p>
+            </div>
         </div>
-    </div>
     <footer>
     </footer>
 
     <!-- jQuery記述を行う。 -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{ asset('js/drop.js') }}"></script>
 </body>
 </html>
