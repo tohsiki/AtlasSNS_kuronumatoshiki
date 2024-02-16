@@ -33,32 +33,48 @@ class UsersController extends Controller
         $user = Auth::user();
         return view('users.profile', ['user'=>$user]);
     }
+    // コントローラにバリデーション入れるか迷い中。
+    public function upProfile(Request $request)
+{
+    $request->validate([
+        'upName' => 'required|min:2|max:12',
+        'upMail' => 'required|email|min:5|max:40|unique:users,mail,'.$request->id.',id',
+        'newPass' => 'required|alpha_num|min:8|max:20',
+        'newPassCon' => 'required|alpha_num|min:8|max:20|same:newPass',
+        'upBio' => 'max:150',
+        'newIcon' => 'image|mimes:jpg,png,bmp,gif,svg',
+    ]);
 
-    public function upProfile(ProfileUpdateRequest $request)
-    {
-        // 1つ目の処理
-        $id = $request->input('id');
-        $up_name = $request->input('upName');
-        $up_mail = $request->input('upMail');
-        $up_bio = $request->input('upBio');
-        $new_pass = $request->input('newPass');
-        $new_pass = $request->input('newPassCon');
+    // 1つ目の処理
+    $id = $request->input('id');
+    $up_name = $request->input('upName');
+    $up_mail = $request->input('upMail');
+    $up_bio = $request->input('upBio');
+    $new_pass = $request->input('newPass');
+    $new_passCon = $request->input('newPassCon');
+    $new_icon = null; // Initialize $new_icon to null
 
-        // 2つ目の処理
-        //whereでフォームから持ってきた$id変数の値と一致するusersテーブルのidに紐づけられているレコードを選択する処理
-        User::where('id', $id)->update([
-            //上記のwhereで選択したidと一致するのname、mail、bioカラムの値を最後に書いてある「->update();」で、フォームから持ってきた変数の値にそれぞれ更新している。
-              'username' => $up_name,
-              'mail' => $up_mail,
-              'bio' => $up_bio,
-              'password' => $new_pass
-
-        ]);
-
-        // 3つ目の処理
-        //profileリンクのページに戻る記述
-        return redirect('/profile');
+    if ($request->hasFile('newIcon')) {
+        $new_icon = $request->file('newIcon')->store('public/images');
     }
+
+    // 2つ目の処理
+    $updateData = [
+        'username' => $up_name,
+        'mail' => $up_mail,
+        'bio' => $up_bio,
+        'password' => bcrypt($new_pass),
+    ];
+
+    if ($new_icon !== null) {
+        $updateData['images'] = basename($new_icon);
+    }
+
+    User::where('id', $id)->update($updateData);
+
+    // 3つ目の処理
+    return redirect('/profile');
+}
 
 
 

@@ -9,7 +9,7 @@ body{
     /* background: #186AC9; */
     height:100vh;
     background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    background-image: linear-gradient(0deg, #FFFF44 0%, #2C7CFF 100%);
 }
 
 header{
@@ -37,14 +37,36 @@ header img {
 }
 
 .login-form{
-      background-color:rgba(128, 128, 128, 0.5);
+      background-color:rgba(128, 128, 128, 0.4);
       border-radius: 10px;
+      width: 200px;
+    }
+
+    .register-form{
+      background-color:rgba(128, 128, 128, 0.4);
+      border-radius: 10px;
+      width: 200px;
     }
 
     .login-content{
         padding-top:20px ;
         padding-bottom: 10px;
         text-align: center;
+    }
+
+    .register-content{
+        padding-top:20px ;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    .login-name{
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+
+    .name-label{
+         font-size: 13px;
     }
 
     .login-mail{
@@ -66,8 +88,9 @@ header img {
     }
 
     .login-button{
-        text-align: right;
+	    margin-left: 90px;
         margin-bottom: 20px;
+        width: 100px;
     }
 
     .login-register{

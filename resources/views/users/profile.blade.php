@@ -14,32 +14,56 @@
     </div>
 @endif
 
-{!! Form::open(['url' => '/profile/update']) !!}
 
-    {{ Form::hidden('id', $user->id) }}
-    <!-- ユーザー名 -->
-    {{ Form::label('ユーザー名') }}
-    {{ Form::input('text', 'upName', $user->username, ['required', 'class' => 'form-control']) }}
+<div class="profile-container">
+    {!! Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) !!}
+        {{ Form::hidden('id', $user->id) }}
 
-    <!-- アドレス -->
-    {{ Form::label('メールアドレス') }}
-    {{ Form::input('text', 'upMail', $user->mail, ['required', 'class' => 'form-control']) }}
+        <!-- ユーザー名 -->
+        <div class="profile-form">
+            {{ Form::label('ユーザー名') }}
+            {{ Form::input('text', 'upName', $user->username, [ 'class' => 'form-control']) }}
+        </div>
 
-    <!-- 自己紹介 -->
-    {{ Form::label('自己紹介') }}
-    {{ Form::input('text', 'upBio', $user->bio, ['required', 'class' => 'form-control']) }}
 
-        <!-- パスワードは初期値入れない -->
-    <!-- パスワード -->
-    {{ Form::label('パスワード') }}
-    {{ Form::password('newPass', null,['required', 'class' => 'form-control']) }}
+        <!-- アドレス -->
+        <div class="profile-form">
+            {{ Form::label('メールアドレス') }}
+            {{ Form::input('text', 'upMail', $user->mail, [ 'class' => 'form-control']) }}
+        </div>
 
-    <!-- パスワード確認用 -->
-    {{ Form::label('パスワード確認用') }}
-    {{ Form::password('newPassCon', null, ['required', 'class' => 'form-control']) }}
 
-    <button type="submit" class="btn btn-primary pull-right">更新</button>
-{!! Form::close() !!}
+        <!-- 自己紹介 -->
+        <div class="profile-form">
+            {{ Form::label('自己紹介') }}
+             {{ Form::input('text', 'upBio', $user->bio, ['class' => 'form-control']) }}
+        </div>
+
+
+            <!-- パスワードは初期値入れない -->
+        <!-- パスワード -->
+        <div class="profile-form">
+            {{ Form::label('パスワード') }}
+            {{ Form::password('newPass', null,[ 'class' => 'form-control']) }}
+        </div>
+
+
+        <!-- パスワード確認用 -->
+        <div class="profile-form">
+            {{ Form::label('パスワード確認用') }}
+            {{ Form::password('newPassCon', null, [ 'class' => 'form-control']) }}
+        </div>
+
+         <div class="profile-form">
+            {{ Form::label('アイコン更新') }}
+            {{ Form::file('newIcon', ['class'=>'','id'=>'fileImage'] )}}
+        </div>
+
+
+        <button type="submit" class="btn btn-danger pull-right">更新</button>
+    {!! Form::close() !!}
+</div>
+
 
 
 @endsection

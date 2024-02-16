@@ -25,8 +25,9 @@ class ProfileUpdateRequest extends FormRequest
     {
         return [
             //記述する場所によって変わりそう。
-            'username' => 'required|unique:users,username|min:2|max:12',
-            'mail' =>  'required|unique:users,mail|email|min:5|max:40',
+            'username' => 'required|min:2|max:12',
+            'mail' =>  'required|unique:items,code,{$this->id},id"|email|min:5|max:40',
+            'bio' => 'max:150',
             'password' => 'required|alpha_num|min:8|max:20',
             'password_confirmation' => 'required|alpha_num|min:8|max:20|same:password',
             // $this->validate($request, $rules);

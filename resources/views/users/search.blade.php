@@ -10,7 +10,9 @@
       <div class="search-form">
         {!! Form::open(['url' => '/search']) !!}
           {{Form::text('keyword', null,['class' => 'input search-input', 'placeholder' => "ユーザー名"])}}
-          {!! Form::image('images/search.png', 'submit', ['class' => 'search-button']) !!}
+          <div class="search-button">
+            {!! Form::image('images/search.png', 'submit', ['class' => 'search-image']) !!}
+          </div>
         {{ Form::close() }}
       </div>
     <!-- 検索結果の表示 -->
@@ -27,7 +29,7 @@
       <!-- アイコンと名前を横並びにする用 -->
         <ul class="search-list">
           <li class="search-block">
-            <figure><a href="/user/profile/{{$user->id}}"><img src="{{ asset('images/'. $user->images) }}" alt="User Icon"></a></figure>
+            <figure><a href="/user/profile/{{$user->id}}"><img src="{{ asset('storage/images/'. $user->images) }}" alt="User Icon"></a></figure>
             <div class="search-name">{{$user->username }}</div>
             @if(Auth::user()->isFollow($user->id))
               <!-- フォローしていたらフォロー解除ボタンを押す -->

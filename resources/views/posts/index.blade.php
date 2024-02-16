@@ -17,11 +17,13 @@
       <!-- 投稿用の処理 -->
         {!! Form::open(['url' => '/post']) !!}
         <!-- ログインユーザーのアイコンを表示 -->
-        <img src="{{asset('images/'.Auth::user()->images)}}" alt="User Icon">
+        <img src="{{asset('storage/images/'.Auth::user()->images)}}" alt="User Icon" class="">
         <!-- nullの左横にはname属性の値を入れる。 -->
-        {{Form::text('post', null,['class' => 'post-input','placeholder' => '投稿内容を入力してください。'])}}
+       {{ Form::textarea('post', null, ['class' => 'post-input', 'placeholder' => '投稿内容を入力してください。', 'style' => 'overflow: hidden;']) }}
         <!-- 画像を埋め込みたい -->
-        {!! Form::image('images/post.png', 'submit', ['class' => 'submit-button']) !!}
+        <div class="index-submit">
+         {!! Form::image('images/post.png', 'submit', ['class' => 'submit-button']) !!}
+        </div>
         <!-- 投稿を表示させる処理 -->
         {!! Form::close() !!}
     </div>
@@ -33,15 +35,15 @@
     <ul>
       <li class="post-block">
         <!-- アイコン -->
-        <figure><img src="{{ asset('images/' . $post->user->images) }}" alt="User Icon" class="index-usericon"></figure>
+        <figure><img src="{{ asset('storage/images/' . $post->user->images) }}" alt="User Icon" class="index-icon"></figure>
         <div class="post-content">
           <div>
             <!-- ユーザー名と投稿日時を表示する -->
             <div class="post-name">{{$post->user->username }}</div>
-              <div>{{ $post->created_at }}</div>
+              <div>{{ $post->created_at->format('Y-m-d H:i')  }}</div>
           </div>
           <!-- 投稿内容を表示する -->
-            <div>{{ $post->post }}</div>
+            <div>{!! nl2br(htmlspecialchars($post->post)) !!}</div>
                 <!-- 投稿を編集するモーダルを表示させるボタンも別のif文を用意して書く -->
             <div class="index-button">
               @if (Auth::user()->id == $post->user_id)

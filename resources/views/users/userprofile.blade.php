@@ -1,7 +1,6 @@
 @extends('layouts.login')
 
 @section('content')
-<p>自分以外のユーザーのプロフィールを表示する</p>
 <!-- アイコンとユーザー名を表示する処理(index.blade.phpと同じクラスを用いた方が楽) -->
 
 

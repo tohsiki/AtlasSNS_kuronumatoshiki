@@ -26,6 +26,7 @@ class PostsController extends Controller
         return view('posts.index',['posts'=>$posts,'followed_user'=>$followed_user,'followed_post'=>$followed_post]);
     }
 
+
     public function post(PostRequest $request){
         //この中に投稿の処理を作っていく。機能はログインと新規登録と似たような機能になるはず。
         if($request->isMethod('post')){
@@ -42,8 +43,12 @@ class PostsController extends Controller
 
 
     // 投稿を更新する処理
-     public function update(Request $request)
+    // バリデーションを追加する
+    public function update(Request $request)
     {
+    $request->validate([
+        'upPost' => 'required|min:1|max:150',
+    ]);
         // 1つ目の処理
         $id = $request->input('modal_id');
 

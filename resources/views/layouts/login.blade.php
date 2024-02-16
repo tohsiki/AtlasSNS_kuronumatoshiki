@@ -48,7 +48,7 @@
                             </li>
                         </ul>
                     </nav>
-                    <img src="{{asset('images/icon1.png')}}">
+                    <img src="{{asset('storage/images/'. Auth::user()->images)}}">
                 </div>
             </div>
         </div>
@@ -61,15 +61,22 @@
                     <div id="confirm">
                         <p>{{Auth::user()->username}}さんの</p>
                         <div class="confirm-follow">
-                            <p>フォロー数</p>
-                            <p>{{ Auth::user()->follows()->get()->count() }}名</p>
+                            <p class="follow-count">フォロー数</p>
+                            <p>{{ Auth::user()->follows()->get()->count() }}人</p>
                         </div>
-                            <p class="btn btn-primary index-button"><a href="/follow-list" class="confirm-button">フォローリスト</a></p>
+                        <div class="index-button">
+                            <p class="btn btn-primary follow-page"><a href="/follow-list" class="confirm-button">フォローリスト</a></p>
+                        </div>
+
                         <div class="confirm-follow">
-                            <p>フォロワー数</p>
-                            <p>{{ Auth::user()->follower()->get()->count() }}名</p>
+                            <p class="follow-count">フォロワー数</p>
+                            <p>{{ Auth::user()->follower()->get()->count() }}人</p>
                         </div>
-                            <p class="btn btn-primary index-button"><a href="/follower-list" class="confirm-button">フォロワーリスト</a></p>
+
+                        <div class="index-button">
+                            <p class="btn btn-primary follower-page "><a href="/follower-list" class="confirm-button">フォロワーリスト</a></p>
+                        </div>
+
                     </div>
                     <div class="confirm-search">
                         <p class="btn btn-primary post_del_btn search-page"><a class=" confirm-button" href="/search">ユーザー検索</a></p>

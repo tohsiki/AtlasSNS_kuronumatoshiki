@@ -55,6 +55,7 @@ header{
   display: flex;
 }
 
+/* サイドバー */
 .confirm-follow{
   display: flex;
 }
@@ -64,6 +65,13 @@ header{
   color: #fff;
 }
 
+.follow-page{
+  margin-left: 100px;
+}
+
+.follower-page{
+  margin-left: 85px;
+}
 
 #confirm{
   border-bottom: 1px solid #000;
@@ -77,6 +85,14 @@ header{
   margin:30px 0 0 65px;
 }
 
+.confirm-button{
+  float: right;
+}
+
+.follow-count{
+  padding-right: 25px;
+}
+
 
 /* 投稿一覧 */
 .post-block{
@@ -86,6 +102,13 @@ header{
   padding: 10px 10px 10px 10px 10px;
   font-size: 90%;
   padding-left: 30px;
+}
+
+.index-icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
 }
 
 
@@ -108,7 +131,6 @@ header{
   border-bottom:4px solid #d3d3d3;
   display:flex;
   height: 150px;
-
   padding-left: 30px;
 }
 
@@ -119,6 +141,8 @@ header{
   margin-right: 10px;
 }
 
+
+
 .post-input {
   height:100px; /* 入力欄の高さ */
   width:800px;
@@ -127,13 +151,10 @@ header{
   border-radius: 5px; /* 入力欄の角丸 */
 }
 
-.index-button{
-
+.index-submit{
+text-align: right;
 }
 
-.form-control{
-  border: none;
-}
 
 
 .form-button{
@@ -141,13 +162,13 @@ width:20px;
 }
 
 .submit-button{
-
   width:35px;
 }
 
 .trash-hover:hover{
   background-image:url('images/trash-h.png');
 }
+
 
 /* ユーザー検索画面のcss */
 .search{
@@ -160,18 +181,20 @@ width:20px;
 
 .search-form{
   padding: 65px 0;
-  padding-left:60px;
-  display:flex;
+  padding-left:80px;
 }
 
 .search-input{
   height:40px;
   border:1px solid  #696969;
+  position:relative;
 }
 
-.search-button{
-  height: 55px;
-  padding-top: 20px;
+.search-image{
+  height: 40px;
+  top: 137px;
+  right: 942px;
+  position:absolute;
 }
 
 .search-block{
@@ -179,6 +202,8 @@ width:20px;
   display:flex;
   padding-left: 150px;
 }
+
+
 
 .search-items{
    justify-content: space-around;
@@ -213,7 +238,18 @@ border-radius: 40px;
 /* アコーディオンメニュー用 */
 
 
-/* プロフィールページ用 */
+/* プロフィール（ログインユーザー） */
+.profile-form{
+  display: flex;
+}
+
+.form-control{
+  border: none;
+  width: 100px;
+height: 30px;
+}
+
+/* 他プロフィールページ用 */
 .profile-content{
   width:50%;
   padding:15px;
@@ -223,6 +259,8 @@ border-radius: 40px;
   display:flex;
   justify-content:space-between;
 }
+
+
 
 
 
