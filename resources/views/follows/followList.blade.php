@@ -2,9 +2,10 @@
 
 @section('content')
 <!-- 自分がフォローしているユーザーのアイコンを表示する処理 -->
-<div class="post-form">
+<div class="post-form follow-form">
+  <h3 class="list-title">Follow List</h3>
   @foreach($followed_user as $follow)
-    <figure><a href="/user/profile/{{$follow->id}}"><img src="{{ asset('storage/images/'. $follow->images)}}" alt="User Icon"></a></figure>
+    <figure><a href="/user/profile/{{$follow->id}}"><img src="{{ asset('storage/images/'. $follow->images)}}" alt="User Icon" class="follow-icon"></a></figure>
   @endforeach
 </div>
 

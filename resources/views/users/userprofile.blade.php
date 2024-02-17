@@ -7,7 +7,7 @@
 <!-- 他ユーザーのアイコン、名前、自己紹介文を表示する処理 -->
  <div class="post-form profile-form">
   <!-- 選択されたユーザーのアイコンを表示 -->
-  <img src="{{asset('images/'.$user_profile->images)}}" alt="User Icon">
+  <img src="{{asset('storage/images/'.$user_profile->images)}}" alt="User Icon">
 <!-- ユーザー名の表示 -->
   <div class="profile-content">
      <!-- ユーザー名を表示する -->
@@ -47,14 +47,14 @@
     <ul>
       <li class="post-block">
         <!-- アイコン -->
-        <figure><img src="{{ asset('images/'. $profile->user->images)}}" alt="User Icon"></figure>
+        <figure><img src="{{ asset('storage/images/'. $profile->user->images)}}" alt="User Icon" class="index-icon"></figure>
         <div class="post-content">
           <div>
             <!-- ユーザー名と投稿日時を表示する -->
             <div class="post-name">{{$profile->user->username }}</div>
 
             <!-- postモデルとのリレーションが上手できていない可能性がある。 -->
-            <div>{{ $profile->created_at }}</div>
+            <div>{{ $profile->created_at->format('Y-m-d H:i') }}</div>
           </div>
           <!-- 投稿内容を表示する -->
             <div>{{$profile->post}}</div>

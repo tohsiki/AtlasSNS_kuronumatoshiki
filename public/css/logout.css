@@ -102,3 +102,14 @@ header img {
     .login-register a{
         color: white;
     }
+
+    /* 登録完了画面 */
+    .added-container{
+        background-color:rgba(128, 128, 128, 0.3);
+        border-radius: 10px;
+        width: 280px;
+        text-align: center;
+    }
+    .added-button{
+        color: white;
+    }

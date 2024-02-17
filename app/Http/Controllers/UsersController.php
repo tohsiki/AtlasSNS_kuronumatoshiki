@@ -84,7 +84,7 @@ class UsersController extends Controller
     {
         $user_profile = User::where('id', $id)->first();
         // dd($user_profile);
-        $profiles =  Post::where('user_id',$id)->get();
+      $profiles = Post::where('user_id', $id)->orderBy('created_at', 'desc')->get();
         // dd($profiles);
         return view('users.userprofile',['profiles'=>$profiles ,'user_profile'=>$user_profile]);
     }

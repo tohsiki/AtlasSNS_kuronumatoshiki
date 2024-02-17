@@ -21,7 +21,7 @@ class PostsController extends Controller
         // $followed_user = User::with('post')->whereIn('id',[ $login_user,$followed_id])->get();
         // ここにログインしているユーザー
         // $followed_post = Post::with('user')->whereIn('user_id',[ $login_user,$followed_id])->get();
-        $followed_post = Post::with('user')->whereIn('user_id', array_merge($followed_id, [$login_user]))->get();
+        $followed_post = Post::with('user')->whereIn('user_id', array_merge($followed_id, [$login_user]))->orderBy('created_at', 'desc')->get();
 
         return view('posts.index',['posts'=>$posts,'followed_user'=>$followed_user,'followed_post'=>$followed_post]);
     }

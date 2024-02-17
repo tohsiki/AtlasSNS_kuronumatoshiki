@@ -1,7 +1,8 @@
 @extends('layouts.login')
 @section('content')
 <!-- 自分をフォローしているユーザーのアイコンを表示する処理 -->
-<div class="post-form">
+<div class="post-form follow-form">
+  <h3 class="list-title">Follower List</h3>
   @foreach($follower_user as $follow)
     <figure><a href="/user/profile/{{$follow->id}}"><img src="{{ asset('storage/images/'. $follow->images)}}" alt="User Icon"></a></figure>
   @endforeach

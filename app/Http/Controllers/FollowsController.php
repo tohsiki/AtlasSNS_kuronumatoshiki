@@ -17,7 +17,7 @@ class FollowsController extends Controller
     //①
         $followed_id = Auth::user()->follows()->pluck('followed_id');
         $followed_user = User::whereIn('id',$followed_id)->get();
-        $followed_post = Post::with('user')->whereIn('user_id',$followed_id)->get();
+        $followed_post = Post::with('user')->whereIn('user_id',$followed_id)->orderBy('created_at', 'desc')->get();
         // dd($followed_id,$followed_user,$followed_post);
 
         return view('follows.followlist',['followed_user'=>$followed_user,'followed_post'=>$followed_post]);
@@ -27,7 +27,7 @@ class FollowsController extends Controller
         //条件：ログインしているユーザーをフォローしているユーザーの情報を取得する。
         $follower_id = Auth::user()->follower()->pluck('following_id');
         $follower_user = User::whereIn('id',$follower_id)->get();
-        $follower_post = Post::with('user')->whereIn('user_id',$follower_id)->get();
+        $follower_post = Post::with('user')->whereIn('user_id',$follower_id)->orderBy('created_at', 'desc')->get();
         // dd($follower_id,$follower_user,$follower_post);
         // $follow_list = Follow::with('user')->where('following_id', Auth::user()->id)->pluck('followed_id');
         return view('follows.followerList',['follower_user'=>$follower_user,'follower_post'=>$follower_post]);

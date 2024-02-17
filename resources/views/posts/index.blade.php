@@ -17,13 +17,13 @@
       <!-- 投稿用の処理 -->
         {!! Form::open(['url' => '/post']) !!}
         <!-- ログインユーザーのアイコンを表示 -->
-        <img src="{{asset('storage/images/'.Auth::user()->images)}}" alt="User Icon" class="">
+        <img src="{{asset('storage/images/'.Auth::user()->images)}}" alt="User Icon" class="post-icon">
         <!-- nullの左横にはname属性の値を入れる。 -->
        {{ Form::textarea('post', null, ['class' => 'post-input', 'placeholder' => '投稿内容を入力してください。', 'style' => 'overflow: hidden;']) }}
         <!-- 画像を埋め込みたい -->
-        <div class="index-submit">
+
          {!! Form::image('images/post.png', 'submit', ['class' => 'submit-button']) !!}
-        </div>
+
         <!-- 投稿を表示させる処理 -->
         {!! Form::close() !!}
     </div>
@@ -48,7 +48,7 @@
             <div class="index-button">
               @if (Auth::user()->id == $post->user_id)
                 <div class="conten update-button">
-                  <a class="js-modal-open upbutton" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png" alt="編集" class="form-button"></a>
+                  <a class="js-modal-open upbutton" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png" alt="編集" class="form-button form-edit"></a>
                 </div>
               @endif
 

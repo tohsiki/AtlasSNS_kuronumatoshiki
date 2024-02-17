@@ -14,12 +14,12 @@
             {!! Form::image('images/search.png', 'submit', ['class' => 'search-image']) !!}
           </div>
         {{ Form::close() }}
+        @if(!empty($search))
+          <div class="search-word">{{$search}}</div>
+        @endif
+          </div>
       </div>
     <!-- 検索結果の表示 -->
-    @if(!empty($search))
-      <div class="search-word">{{$search}}</div>
-    @endif
-  </div>
 <!-- ②ユーザーの一覧　（あいまい検索後にしぼ込まれる機能付き） -->
 <!-- ログインしているユーザーは表示しないようにif文をつける。 -->
   @foreach($users as $user)

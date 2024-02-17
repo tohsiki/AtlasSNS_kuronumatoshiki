@@ -2,14 +2,13 @@
 
 @section('content')
 
-<div id="clear">
-  <!--この文では動かないかも-->
+<div id="clear" class="added-container">
   <p>{{ session('username') }}さん</p>
   <p>ようこそ！AtlasSNSへ！</p>
-  <p>ユーザー登録が完了しました。</p>
+  <p>ユーザー登録が完了いたしました。</p>
   <p>早速ログインをしてみましょう。</p>
 
-  <p class="btn"><a href="/login">ログイン画面へ</a></p>
+  <p class="btn btn-danger added-button"><a href="/login" class=" added-button">ログイン画面へ</a></p>
 </div>
 
 @endsection

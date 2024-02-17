@@ -74,7 +74,7 @@ header{
 }
 
 #confirm{
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #d3d3d3;
 }
 
 .confirm-search{
@@ -97,20 +97,20 @@ header{
 /* 投稿一覧 */
 .post-block{
   list-style:none;
-  border-bottom:1px solid #000;
+  border-bottom:1px solid #d3d3d3;
   display:flex;
   padding: 10px 10px 10px 10px 10px;
   font-size: 90%;
   padding-left: 30px;
 }
 
+/* アイコンのサイズ調整専用 */
 .index-icon{
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-left: 10px;
 }
-
 
 
 .post-content{
@@ -129,41 +129,48 @@ header{
 
 .post-form{
   border-bottom:4px solid #d3d3d3;
-  display:flex;
-  height: 150px;
+  /* display:flex; */
+  height: 120px;
   padding-left: 30px;
+  margin-bottom: 10px;
 }
 
 .post-form img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-right: 10px;
-}
 
+}
 
 
 .post-input {
   height:100px; /* 入力欄の高さ */
   width:800px;
-  padding: 40px; /* 入力欄の余白 */
+  padding: 40px;
   border: none; /* 入力欄の枠線 */
   border-radius: 5px; /* 入力欄の角丸 */
 }
 
-.index-submit{
-text-align: right;
+.post-icon{
+  margin-bottom: 120px;
 }
 
 
+.submit-button{
+  width:35px;
+  border-radius: 5px;
+  margin-left: 30px;
+}
 
 .form-button{
 width:20px;
 }
 
-.submit-button{
-  width:35px;
+.form-edit{
+  margin-left: 50px;
 }
+
+
 
 .trash-hover:hover{
   background-image:url('images/trash-h.png');
@@ -181,7 +188,8 @@ width:20px;
 
 .search-form{
   padding: 65px 0;
-  padding-left:80px;
+  padding-left:140px;
+  display: flex;
 }
 
 .search-input{
@@ -190,10 +198,16 @@ width:20px;
   position:relative;
 }
 
+.search-word{
+  margin-top: 5px;
+  margin-left: 230px;
+  font-size: 20px;
+}
+
 .search-image{
   height: 40px;
   top: 137px;
-  right: 942px;
+  right: 883px;
   position:absolute;
 }
 
@@ -226,8 +240,25 @@ width:20px;
 
 
 .userfollow-btn{
-  padding-top: 80px;
+  padding-top: 70px;
   padding-left: 300px;
+}
+
+/* フォロー、フォロワーリスト */
+.follow-form{
+  display: flex;
+}
+
+.follow-icon{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.list-title{
+  font-weight: normal;
+  margin-left:60px;
+  margin-top:18px ;
+  margin-right: 20px;
 }
 
 
