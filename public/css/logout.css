@@ -29,7 +29,7 @@ header img {
     }
 
 #container{
-    width:180px;
+    width:300px;
     height:140px;
     /* background-color:#4773ff; */
     margin:0 auto;
@@ -39,22 +39,56 @@ header img {
 .login-form{
       background-color:rgba(128, 128, 128, 0.4);
       border-radius: 10px;
-      width: 200px;
+      width: 300px;
     }
 
+.login-mail{
+    width: 80%;
+    margin-left: 32px;
+    border: 1px solid #a9a9a9;
+}
+
+.login-pass {
+    width: 80%;
+    margin-left: 32px;
+    border: 1px solid #a9a9a9;
+}
+
+.mail-label{
+    width: 80%;
+    margin-left: 32px;
+}
+
+.pass-label{
+    width: 80%;
+    margin-left: 32px;
+}
+
+.login-form p a{
+    text-align: center;
+}
+
+/* 新規登録画面 */
     .register-form{
       background-color:rgba(128, 128, 128, 0.4);
       border-radius: 10px;
-      width: 200px;
+      width: 300px;
     }
 
-    .login-content{
+    .register-content{
         padding-top:20px ;
         padding-bottom: 10px;
         text-align: center;
     }
 
-    .register-content{
+    .register-item{
+        width: 80%;
+        margin-left: 32px;
+        border: 1px solid #a9a9a9;
+    }
+
+
+    .login-content{
         padding-top:20px ;
         padding-bottom: 10px;
         text-align: center;
@@ -66,7 +100,9 @@ header img {
     }
 
     .name-label{
-         font-size: 13px;
+        font-size: 13px;
+        width: 80%;
+        margin-left: 32px;
     }
 
     .login-mail{
@@ -88,13 +124,13 @@ header img {
     }
 
     .login-button{
-	    margin-left: 90px;
+	    margin-left: 170px;
         margin-bottom: 20px;
         width: 100px;
     }
 
     .login-register{
-        font-size: 13px;
+        font-size: 16px;
         text-align: center;
         padding-bottom: 20px;
     }
@@ -103,12 +139,17 @@ header img {
         color: white;
     }
 
+
     /* 登録完了画面 */
+    #clear{
+        margin: auto;
+    }
     .added-container{
         background-color:rgba(128, 128, 128, 0.3);
         border-radius: 10px;
-        width: 280px;
+        width: 300px;
         text-align: center;
+        margin-right: 20px;
     }
     .added-button{
         color: white;

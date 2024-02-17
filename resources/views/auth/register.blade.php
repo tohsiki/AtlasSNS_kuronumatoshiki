@@ -29,16 +29,16 @@ request()->session()->put('username', $username);
     <p class="register-content">新規ユーザー登録</p>
 
     {{ Form::label('username', null, ['class' => 'name-label'])  }}
-    {{ Form::text('username',null,['class' => 'input login-name' ]) }}
+    {{ Form::text('username',null,['class' => 'input login-name register-item' ]) }}
 
     {{ Form::label('e-mail', null, ['class' => 'mail-label'])  }}
-    {{ Form::text('mail',null,['class' => 'input login-mail' ]) }}
+    {{ Form::text('mail',null,['class' => 'input login-mail register-item' ]) }}
 
     {{ Form::label('password', null, ['class' => 'pass-label']) }}
-    {{ Form::password('password',null,['class' => 'input login-pass']) }}
+    {{ Form::password('password',['class' => 'input login-pass register-item']) }}
 
     {{ Form::label('pass確認', null, ['class' => 'pass-label']) }}
-    {{ Form::password('password_confirmation',null,['class' => 'input login-pass']) }}
+    {{ Form::password('password_confirmation',['class' => 'input login-pass register-item']) }}
 
     {{ Form::submit('登録' , ['class' =>'btn btn-danger login-button']) }}
 

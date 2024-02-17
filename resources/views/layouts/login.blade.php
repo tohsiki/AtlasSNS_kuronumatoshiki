@@ -47,7 +47,7 @@
                         <ul class="menu">
                             <li class="menu-item">
                                 <ul class="menuSub">
-                                    <li class="menuSub_item"><a href="/top">ホーム</a></li>
+                                    <li class="menuSub_item"><a href="/top" >ホーム</a></li>
                                     <li class="menuSub_item"><a href="/profile">プロフィール</a></li>
                                     <li class="menuSub_item"><a href="/logout">ログアウト</a></li>
                                 </ul>

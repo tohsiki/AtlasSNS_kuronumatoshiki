@@ -59,7 +59,7 @@ header{
 /* レイアウト-ログイン */
 .logo-image{
   width: 120px;
-  margin:20px 0 0 50px;
+  margin:10px 0 0 50px;
 
 }
 
@@ -221,7 +221,7 @@ width:20px;
 
 .search-image{
   height: 40px;
-  top: 137px;
+  top: 128px;
   right: 883px;
   position:absolute;
 }
@@ -430,13 +430,13 @@ input[type="file"] {
         display: none;
         position: absolute;
         top: 72px;
-        right: 40px;
+        right: 0px;
         background-color: #f9f9f9;
-        min-width: 160px;
+        /* min-width: 160px; */
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
         text-align: center;
-        width: 130px;
+        width: 255px;
     }
 
     .menuSub_item {
@@ -453,6 +453,12 @@ input[type="file"] {
 
     .menuSub_item a:hover{
        color: #f1f1f1;
+       text-decoration:none;
+    }
+
+    .menuSub a{
+      color:#a9a9a9;
+      font-size: 22px;
     }
 
     /* .menu-item:hover .menuSub {
