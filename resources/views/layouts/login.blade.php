@@ -33,10 +33,16 @@
             <h1><a href="/top"><img src="{{asset('images/atlas.png')}}" class="logo-image"></a></h1>
             <div id="head-parts">
                 <div id="head-item">
+                    <div class="header-names">
+                        <p class="head-name">{{Auth::user()->username}}</p>
+                    <p class="text-white">さん</p>
+                    </div>
 
-                    <p class="head-name">{{Auth::user()->username}}     さん</p>
                     <!-- モーダル機能を作る -->
-
+                     <div class="menu-trigger">
+                        <span></span>
+                        <span></span>
+                    </div>
                     <nav>
                         <ul class="menu">
                             <li class="menu-item">
@@ -48,7 +54,7 @@
                             </li>
                         </ul>
                     </nav>
-                    <img src="{{asset('storage/images/'. Auth::user()->images)}}">
+                    <img src="{{asset('storage/images/'. Auth::user()->images)}}" class="head-image">
                 </div>
             </div>
         </div>

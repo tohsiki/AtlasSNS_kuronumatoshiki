@@ -21,38 +21,39 @@
             {{ Form::hidden('id', $user->id) }}
             <!-- ユーザー名 -->
         <div class="profile-items">
-            <p>ユーザー名</p>
+            <p class="profile-itemp">ユーザー名</p>
             {{ Form::input('text', 'upName', $user->username, [ 'class' => 'profile-name up-form']) }}
         </div>
         <div class="profile-items">
             <!-- アドレス -->
-            <p>メールアドレス</p>
+            <p class="profile-itemp">メールアドレス</p>
             {{ Form::input('text', 'upMail', $user->mail, [ 'class' => 'profile-mail up-form']) }}
         </div>
         <div class="profile-items">
             <!-- パスワード -->
-            <p>パスワード</p>
+            <p class="profile-itemp">パスワード</p>
             {{ Form::password('newPass',[ 'class' => 'profile-pass up-form']) }}
         </div>
         <!-- パスワードは初期値入れない -->
         <div class="profile-items">
             <!-- パスワード確認用 -->
-            <p>パスワード確認</p>
+            <p class="profile-itemp">パスワード確認</p>
             {{ Form::password('newPassCon',  [ 'class' => 'profile-pass up-form']) }}
         </div>
         <div class="profile-items">
             <!-- 自己紹介 -->
-            <p>自己紹介</p>
+            <p class="profile-itemp">自己紹介</p>
             {{ Form::input('text', 'upBio', $user->bio, ['class' => 'profile-bio up-form']) }}
         </div>
 
         <div class="profile-items update-icon">
             <!-- アイコンの更新 -->
             <!-- 選択されていませんを削除する。 -->
-            <p>アイコン更新</p>
+            <p class="profile-itemp">アイコン更新</p>
             <div class="icon-profile">
                 <label for="newIcon" class="custom-file-upload">
-                <input type="file" class="profile-icon icon-imag" name="newIcon"><p class="custom-file-upload">ファイルを選択</p>
+                <input type="file" class="profile-icon icon-imag" id="newIcon" name="newIcon">
+                <p class="">ファイルを選択</p>
                 </label>
             </div>
         </div>
