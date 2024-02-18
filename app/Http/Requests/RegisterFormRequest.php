@@ -30,9 +30,8 @@ class RegisterFormRequest extends FormRequest
             'mail' =>  'required|unique:users,mail|email|min:5|max:40',
             'password' => 'required|alpha_num|min:8|max:20',
             'password_confirmation' => 'required|alpha_num|min:8|max:20|same:password',
-            // $this->validate($request, $rules);
-            //
         ];
+
     }
 
     // public function messages(){

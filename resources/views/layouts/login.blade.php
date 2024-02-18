@@ -37,7 +37,6 @@
                         <p class="head-name">{{Auth::user()->username}}</p>
                     <p class="text-white">さん</p>
                     </div>
-
                     <!-- モーダル機能を作る -->
                      <div class="menu-trigger">
                         <span></span>
@@ -54,7 +53,7 @@
                             </li>
                         </ul>
                     </nav>
-                    <img src="{{asset('storage/images/'. Auth::user()->images)}}" class="head-image">
+                    <img src="{{asset('storage/images/'. Auth::user()->images)}}" class="head-image" alt="User Icon">
                 </div>
             </div>
         </div>
@@ -65,7 +64,7 @@
             </div >
             <div id="side-bar">
                     <div id="confirm">
-                        <p>{{Auth::user()->username}}さんの</p>
+                        <p class="confirm-user-name">{{Auth::user()->username}}さんの</p>
                         <div class="confirm-follow">
                             <p class="follow-count">フォロー数</p>
                             <p>{{ Auth::user()->follows()->get()->count() }}人</p>

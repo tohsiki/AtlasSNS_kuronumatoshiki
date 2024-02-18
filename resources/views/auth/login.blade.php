@@ -12,7 +12,7 @@
 {{ Form::label('password', null, ['class' => 'pass-label']) }}
 {{ Form::password('password',['class' => 'input login-pass']) }}
 
-{{ Form::submit('LOGIN', ['class' =>'btn btn-danger login-button']) }}
+{{ Form::submit('ログイン', ['class' =>'btn btn-danger login-button']) }}
 
 <p class="login-register"><a href="/register">新規ユーザーの方はこちら</a></p>
 

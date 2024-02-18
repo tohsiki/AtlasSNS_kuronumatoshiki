@@ -11,7 +11,6 @@
         </div>
   @endif
 
-
   <div class="post-form">
     <div>
       <!-- 投稿用の処理 -->
@@ -28,7 +27,6 @@
         {!! Form::close() !!}
     </div>
 </div>
-
 
   @foreach($followed_post as $post)
   <div>
@@ -55,8 +53,8 @@
               @if (Auth::user()->id == $post->user_id)
                   {{ Form::open(['url' => '/posts/'.$post->id.'/delete', 'method' => 'get']) }}
                   {{ csrf_field() }}
-                    <!-- 投稿を削除するボタン トラッシュ絵文字はbi bi-trash -->
-                    {!! Form::image('images/trash.png', 'submit', ['class' => 'form-button trash-hover', 'onclick' => "return confirm('本当に削除します？')"]) !!}
+                    <!-- 最初に表示させておくボタン-->
+                    {!! Form::image('images/trash.png', 'submit', ['class' => 'form-button trash-hover', 'onclick' => "return confirm('本当に削除します？')", 'style' => 'background-repeat: no-repeat;']) !!}
                 {{ Form::close() }}
               @endif
             </div>
@@ -75,12 +73,10 @@
               {{ Form::textarea('upPost', null, ['class' => 'modal_post']) }}
               <!-- $post->idと書いていたが、それのせいで取得できていたクリックされたid(modal_id)を上書きしていたために最終行のidを送っていた。 -->
               {{ Form::hidden('modal_id', null, ['class' => 'modal_id']) }}
-              {!! Form::image('images/edit.png', 'submit', ['class' => 'submit-button']) !!}
+              {!! Form::image('images/edit.png', 'submit', ['class' => 'modal-button']) !!}
               {{ csrf_field() }}
             {!! Form::close() !!}
-            <a class="js-modal-close btn btn-danger post_del_btn" href="/top">閉じる</a>
+
         </div>
     </div>
-
-
 @endsection

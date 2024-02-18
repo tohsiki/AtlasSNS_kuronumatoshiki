@@ -4,7 +4,7 @@
 
 <div id="clear">
   <div class="added-container">
-    <p>{{ session('username') }}さん</p>
+    <p class="added-name">{{ session('username') }}さん</p>
     <p>ようこそ！AtlasSNSへ！</p>
     <p>ユーザー登録が完了いたしました。</p>
     <p>早速ログインをしてみましょう。</p>

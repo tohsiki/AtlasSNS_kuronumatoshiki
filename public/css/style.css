@@ -29,26 +29,28 @@ header{
 
 
 #head-parts{
-  padding-left:770px;
+  padding-left:880px;
 }
 
 .header-names{
   display: flex;
   color: #f1f1f1;
-  padding-top:20px ;
-  margin-right: 30px;
+  padding-top:22px ;
+  margin-right: 10px;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .head-name{
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .head-image{
-  margin-left: 20px;
-  width: 50px;
-  height: 50px;
+  margin-left: 6px;
+  width: 45px;
+  height: 45px;
   margin-top:10px ;
+  border-radius: 50%;
 }
 
 .list-button{
@@ -73,8 +75,15 @@ header{
 /* サイドバー */
 .confirm-follow{
   display: flex;
+  margin-left: 20px;
+  font-size: 15px;
 }
 
+.confirm-user-name{
+  margin-top: 10px;
+  margin-left: 20px;
+   font-size: 15px;
+}
 
 .confirm-button{
   color: #fff;
@@ -161,7 +170,8 @@ header{
 .post-input {
   height:100px; /* 入力欄の高さ */
   width:800px;
-  padding: 40px;
+  margin-top: 10px;
+  padding: 20px 40px 40px 40px ;
   border: none; /* 入力欄の枠線 */
   border-radius: 5px; /* 入力欄の角丸 */
 }
@@ -187,8 +197,14 @@ width:20px;
 
 
 
-.trash-hover:hover{
-  background-image:url('images/trash-h.png');
+.trash-hover {
+  background-image: none;
+}
+
+.trash-hover:hover {
+  background-image: url('../images/trash-h.png');
+  border-radius: 2px;
+  transition: 0.3s;
 }
 
 
@@ -210,20 +226,25 @@ width:20px;
 .search-input{
   height:40px;
   border:1px solid  #696969;
-  position:relative;
+  border-radius: 5px;
+  padding-right: 40px;
+  padding-left:10px;
 }
 
 .search-word{
   margin-top: 5px;
-  margin-left: 230px;
+  margin-left: 190px;
   font-size: 20px;
 }
 
 .search-image{
   height: 40px;
-  top: 128px;
-  right: 883px;
-  position:absolute;
+  margin-left:20px;
+  border-radius: 5px;
+}
+
+.search-button{
+  display: flex;
 }
 
 .search-block{
@@ -231,8 +252,6 @@ width:20px;
   display:flex;
   padding-left: 150px;
 }
-
-
 
 .search-items{
    justify-content: space-around;
@@ -252,7 +271,6 @@ width:20px;
   padding-right:350px;
   padding-top: 10px;
 }
-
 
 .userfollow-btn{
   padding-top: 70px;
@@ -312,7 +330,7 @@ border-radius: 40px;
 }
 
 .update-btn{
-  margin-left: 300px;
+  margin-left: 40%;
   width: 17%;
 }
 
@@ -410,13 +428,30 @@ input[type="file"] {
 }
 .modal__content{
     background: #fff;
-    left: 50%;
+    border-radius: 15px;
+    left: 60%;
     padding: 40px;
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
     width: 60%;
 }
+
+.modal_post{
+  width: 100%;
+}
+
+.modal-button{
+  width:35px;
+  border-radius: 5px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+}
+
+
+
+
 
 .confirm{
   margin:0 auto;
@@ -429,7 +464,7 @@ input[type="file"] {
 .menuSub {
         display: none;
         position: absolute;
-        top: 72px;
+        top: 63px;
         right: 0px;
         background-color: #f9f9f9;
         /* min-width: 160px; */

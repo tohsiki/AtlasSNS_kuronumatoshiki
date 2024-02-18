@@ -9,8 +9,8 @@
   <div class="search">
       <div class="search-form">
         {!! Form::open(['url' => '/search']) !!}
-          {{Form::text('keyword', null,['class' => 'input search-input', 'placeholder' => "ユーザー名"])}}
           <div class="search-button">
+            {{Form::text('keyword', null,['class' => 'input search-input', 'placeholder' => "ユーザー名"])}}
             {!! Form::image('images/search.png', 'submit', ['class' => 'search-image']) !!}
           </div>
         {{ Form::close() }}

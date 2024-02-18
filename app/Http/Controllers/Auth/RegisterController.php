@@ -46,7 +46,32 @@ class RegisterController extends Controller
     }
 
     //登録する処理
-    public function register(RegisterFormRequest $request){
+    public function register(Request $request){
+         $request->validate([
+            'username' => 'required|unique:users,username|min:2|max:12',
+            'mail' =>  'required|unique:users,mail|email|min:5|max:40',
+            'password' => 'required|alpha_num|min:8|max:20',
+            'password_confirmation' => 'required|alpha_num|min:8|max:20|same:password',
+        ],[
+            'username.required' => 'ユーザー名は必須です。',
+            'username.unique' => 'そのユーザー名は既に使用されています。',
+            'username.min' => 'ユーザー名は2文字以上で入力してください。',
+            'username.max' => 'ユーザー名は12文字以下で入力してください。',
+            'mail.required' => 'メールアドレスは必須です。',
+            'mail.unique' => 'そのメールアドレスは既に使用されています。',
+            'mail.email' => '有効なメールアドレスを入力してください。',
+            'mail.min' => 'メールアドレスは5文字以上で入力してください。',
+            'mail.max' => 'メールアドレスは40文字以下で入力してください。',
+            'password.required' => 'パスワードは必須です。',
+            'password.alpha_num' => 'パスワードは英数字で入力してください。',
+            'password.min' => 'パスワードは8文字以上で入力してください。',
+            'password.max' => 'パスワードは20文字以下で入力してください。',
+            'password_confirmation.required' => '確認用パスワードは必須です。',
+            'password_confirmation.alpha_num' => '確認用パスワードは英数字で入力してください。',
+            'password_confirmation.min' => '確認用パスワードは8文字以上で入力してください。',
+            'password_confirmation.max' => '確認用パスワードは20文字以下で入力してください。',
+            'password_confirmation.same' => '確認用パスワードが一致しません。',
+        ]);
         if($request->isMethod('post')){
             $username = $request->input('username');
             $mail = $request->input('mail');

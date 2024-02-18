@@ -1,15 +1,7 @@
 @extends('layouts.logout')
-
 @section('content')
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/register']) !!}
-
-<!-- @php
-$username = request()->input('username');
-request()->session()->put('username', $username);
-@endphp -->
-
-
 <!--バリデーションのエラーメッセージ-->
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -20,10 +12,6 @@ request()->session()->put('username', $username);
         </ul>
     </div>
 @endif
-
-
-
-
 <div class="register-form">
     {!! Form::open(['url' => '/register']) !!}
     <p class="register-content">新規ユーザー登録</p>
@@ -46,7 +34,4 @@ request()->session()->put('username', $username);
 
     {!! Form::close() !!}
 </div>
-
-
-
 @endsection

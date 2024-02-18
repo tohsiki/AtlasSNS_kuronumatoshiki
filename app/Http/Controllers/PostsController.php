@@ -46,8 +46,12 @@ class PostsController extends Controller
     // バリデーションを追加する
     public function update(Request $request)
     {
-    $request->validate([
-        'upPost' => 'required|min:1|max:150',
+   $request->validate([
+    'upPost' => 'required|min:1|max:150',
+    ], [
+    'upPost.required' => '投稿内容は必須です。',
+    'upPost.min' => '投稿内容は1文字以上で入力してください。',
+    'upPost.max' => '投稿内容は150文字以下で入力してください。',
     ]);
         // 1つ目の処理
         $id = $request->input('modal_id');

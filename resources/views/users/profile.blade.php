@@ -14,7 +14,6 @@
     </div>
 @endif
 
-
 <div class="profile-container">
     <div class="profile-form">
             {!! Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) !!}
@@ -45,7 +44,6 @@
             <p class="profile-itemp">自己紹介</p>
             {{ Form::input('text', 'upBio', $user->bio, ['class' => 'profile-bio up-form']) }}
         </div>
-
         <div class="profile-items update-icon">
             <!-- アイコンの更新 -->
             <!-- 選択されていませんを削除する。 -->
@@ -60,7 +58,6 @@
         <div class="">
             <button type="submit" class="btn btn-danger pull-right update-btn">更新</button>
         </div>
-
             {!! Form::close() !!}
     </div>
 </div>
