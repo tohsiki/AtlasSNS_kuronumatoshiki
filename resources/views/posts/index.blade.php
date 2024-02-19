@@ -26,6 +26,7 @@
         {!! Form::close() !!}
     </div>
 </div>
+
   @foreach($followed_post as $post)
   <div>
     <ul>
@@ -51,7 +52,7 @@
                     <!-- 最初に表示させておくボタン-->
                     <div class="trash-button">
                       <!-- 投稿の削除ボタン -->
-              <p class="button"><a class=" trash" href="/posts/'.$post->id.'/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="/images/trash.png" width="30" height="30" alt="削除ボタン"></a></p>
+                      <p class="button"><a class="trash" href="/posts/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')" method="get"><img src="/images/trash.png" width="30" height="30" alt="削除ボタン"></a></p>
                     </div>
                 {{ Form::close() }}
               @endif
@@ -60,6 +61,7 @@
       </li>
     </ul>
   </div>
+
   @endforeach
  <!-- モーダルの中身 -->
   <!-- モーダルの中にupdate用の記述を書く -->
