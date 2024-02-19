@@ -5,23 +5,25 @@
 
 
 <!-- 他ユーザーのアイコン、名前、自己紹介文を表示する処理 -->
- <div class="post-form profile-form">
+ <div class="user-form">
   <!-- 選択されたユーザーのアイコンを表示 -->
-  <img src="{{asset('storage/images/'.$user_profile->images)}}" alt="User Icon">
+  <img src="{{asset('storage/images/'.$user_profile->images)}}" alt="User Icon" class="index-icon user-icon">
+
+
 <!-- ユーザー名の表示 -->
   <div class="profile-content">
      <!-- ユーザー名を表示する -->
     <div class="profile-name">
-      <p>name</p>
-      <div class="post-name">{{$user_profile->username }}</div>
+      <p>ユーザー名</p>
+      <p>自己紹介</p>
     </div>
     <!-- 自己紹介を表示する -->
     <div class="profile-bio">
-      <p>自己紹介</p>
-      <div>{{$user_profile->bio }}</div>
+      <div class="post-items post-name"><p>{{$user_profile->username }}</p></div>
+      <div class="post-items"><p>{{$user_profile->bio }}</p></div>
     </div>
   </div>
-  <div class="userfollow-btn">
+  <div class="">
     @if(Auth::user()->isFollow($user_profile->id))
       <form method="POST" action="/unfollow" >
                 @csrf
@@ -39,7 +41,6 @@
   </div>
 
 </div>
-
 
 <!-- foreachでユーザーのアイコン、名前、投稿内容、投稿日時を出す処理を取得する処理 -->
  @foreach($profiles as $profile)

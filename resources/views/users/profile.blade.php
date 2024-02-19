@@ -13,16 +13,17 @@
         </ul>
     </div>
 @endif
-
 <div class="profile-container">
     <div class="profile-form">
             {!! Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) !!}
             {{ Form::hidden('id', $user->id) }}
             <!-- ユーザー名 -->
         <div class="profile-items">
-            <p class="profile-itemp">ユーザー名</p>
-            {{ Form::input('text', 'upName', $user->username, [ 'class' => 'profile-name up-form']) }}
+        <img src="{{asset('storage/images/'. Auth::user()->images)}}" class="profile-icon" alt="User Icon">
+            <p class="profile">ユーザー名</p>
+            {{ Form::input('text', 'upName', $user->username, [ 'class' => 'up-form']) }}
         </div>
+
         <div class="profile-items">
             <!-- アドレス -->
             <p class="profile-itemp">メールアドレス</p>

@@ -22,9 +22,7 @@
     <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
-
     <!-- スクリプトの呼び出し -->
-
     <!--OGPタグ/twitterカード-->
 </head>
 <body>
@@ -70,7 +68,7 @@
                             <p>{{ Auth::user()->follows()->get()->count() }}人</p>
                         </div>
                         <div class="index-button">
-                            <p class="btn btn-primary follow-page"><a href="/follow-list" class="confirm-button">フォローリスト</a></p>
+                            <p class="btn btn-primary follow-page"><a href="/follow-list" class="confirm-button follow-list-button">フォローリスト</a></p>
                         </div>
 
                         <div class="confirm-follow">
@@ -79,7 +77,7 @@
                         </div>
 
                         <div class="index-button">
-                            <p class="btn btn-primary follower-page "><a href="/follower-list" class="confirm-button">フォロワーリスト</a></p>
+                            <p class="btn btn-primary follower-page "><a href="/follower-list" class="confirm-button follow-list-button">フォロワーリスト</a></p>
                         </div>
 
                     </div>
@@ -91,7 +89,6 @@
         </div>
     <footer>
     </footer>
-
     <!-- jQuery記述を行う。 -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('js/script.js') }}"></script>

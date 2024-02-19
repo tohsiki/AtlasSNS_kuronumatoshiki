@@ -23,4 +23,4 @@
         $('.js-modal').fadeOut();
         return false;
     });
-});
+    });

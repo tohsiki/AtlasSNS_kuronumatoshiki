@@ -16,7 +16,7 @@
       <ul>
         <li class="post-block">
           <!-- アイコン -->
-          <figure><a href="/user/profile/{{$follow->id}}"><img src="{{ asset('storage/images/'. $follow->user->images)}}" alt="User Icon" class="index-icon"></a></figure>
+          <figure><a href="/user/profile/{{$follow->user->id}}"><img src="{{ asset('storage/images/'. $follow->user->images)}}" alt="User Icon" class="index-icon"></a></figure>
           <div class="post-content">
             <div>
               <!-- ユーザー名と投稿日時を表示する -->

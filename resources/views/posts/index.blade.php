@@ -20,14 +20,12 @@
         <!-- nullの左横にはname属性の値を入れる。 -->
        {{ Form::textarea('post', null, ['class' => 'post-input', 'placeholder' => '投稿内容を入力してください。', 'style' => 'overflow: hidden;']) }}
         <!-- 画像を埋め込みたい -->
-
          {!! Form::image('images/post.png', 'submit', ['class' => 'submit-button']) !!}
 
         <!-- 投稿を表示させる処理 -->
         {!! Form::close() !!}
     </div>
 </div>
-
   @foreach($followed_post as $post)
   <div>
     <ul>
@@ -45,16 +43,16 @@
                 <!-- 投稿を編集するモーダルを表示させるボタンも別のif文を用意して書く -->
             <div class="index-button">
               @if (Auth::user()->id == $post->user_id)
-                <div class="conten update-button">
+                <div class="update-button">
                   <a class="js-modal-open upbutton" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png" alt="編集" class="form-button form-edit"></a>
                 </div>
               @endif
-
               @if (Auth::user()->id == $post->user_id)
-                  {{ Form::open(['url' => '/posts/'.$post->id.'/delete', 'method' => 'get']) }}
-                  {{ csrf_field() }}
                     <!-- 最初に表示させておくボタン-->
-                    {!! Form::image('images/trash.png', 'submit', ['class' => 'form-button trash-hover', 'onclick' => "return confirm('本当に削除します？')", 'style' => 'background-repeat: no-repeat;']) !!}
+                    <div class="trash-button">
+                      <!-- 投稿の削除ボタン -->
+              <p class="button"><a class=" trash" href="/posts/'.$post->id.'/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="/images/trash.png" width="30" height="30" alt="削除ボタン"></a></p>
+                    </div>
                 {{ Form::close() }}
               @endif
             </div>
@@ -62,7 +60,6 @@
       </li>
     </ul>
   </div>
-
   @endforeach
  <!-- モーダルの中身 -->
   <!-- モーダルの中にupdate用の記述を書く -->

@@ -3,8 +3,6 @@
 @section('content')
 <!-- ユーザー検索画面のタスク -->
 <!-- ①ユーザー検索用のフォーム -->
-
-
   <!-- 検索用のフォーム -->
   <div class="search">
       <div class="search-form">
@@ -19,7 +17,7 @@
         @endif
           </div>
       </div>
-    <!-- 検索結果の表示 -->
+<!-- 検索結果の表示 -->
 <!-- ②ユーザーの一覧　（あいまい検索後にしぼ込まれる機能付き） -->
 <!-- ログインしているユーザーは表示しないようにif文をつける。 -->
   @foreach($users as $user)
@@ -29,7 +27,7 @@
       <!-- アイコンと名前を横並びにする用 -->
         <ul class="search-list">
           <li class="search-block">
-            <figure><a href="/user/profile/{{$user->id}}"><img src="{{ asset('storage/images/'. $user->images) }}" alt="User Icon"></a></figure>
+            <figure><a href="/user/profile/{{$user->id}}"><img src="{{ asset('storage/images/'. $user->images) }}" alt="User Icon" class="index-icon"></a></figure>
             <div class="search-name">{{$user->username }}</div>
             @if(Auth::user()->isFollow($user->id))
               <!-- フォローしていたらフォロー解除ボタンを押す -->
@@ -47,7 +45,6 @@
                 <button type="submit" class="btn btn-info  follow-btn">フォローする</button>
               </form>
             @endif
-
           </li>
         </ul>
       </div>

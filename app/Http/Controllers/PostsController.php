@@ -27,7 +27,14 @@ class PostsController extends Controller
     }
 
 
-    public function post(PostRequest $request){
+    public function post(Request $request){
+         $request->validate([
+             'post' => 'required|min:1|max:150',
+        ], [
+            'post.required' => '投稿内容は必須です。',
+            'post.min' => '投稿内容は1文字以上で入力してください。',
+            'post.max' => '投稿内容は150文字以下で入力してください.',
+        ]);
         //この中に投稿の処理を作っていく。機能はログインと新規登録と似たような機能になるはず。
         if($request->isMethod('post')){
             $post = $request->input('post');
