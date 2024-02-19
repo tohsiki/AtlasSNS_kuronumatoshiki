@@ -29,7 +29,7 @@ header{
 
 
 #head-parts{
-  padding-left:860px;
+  padding-left:900px;
 }
 
 .header-names{
@@ -60,8 +60,8 @@ header{
 
 /* レイアウト-ログイン */
 .logo-image{
-  width: 120px;
-  margin:10px 0 0 50px;
+  width: 100px;
+  margin:5px 0 0 40px;
 
 }
 

@@ -23,7 +23,6 @@
             <p class="profile">ユーザー名</p>
             {{ Form::input('text', 'upName', $user->username, [ 'class' => 'up-form']) }}
         </div>
-
         <div class="profile-items">
             <!-- アドレス -->
             <p class="profile-itemp">メールアドレス</p>
