@@ -5,31 +5,45 @@ body{
 }
 /* header */
 header{
-    background:#186AC9;
+  background:#b3b3b3;
     /* padding:50px 0; */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width:100%;
 }
 
 
 /* main content */
 #row{
-    display: flex;
-    flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
 }
 #container{
-    flex: 0 0 80%;
-     border-right: 1px solid #727272;
+  flex: 0 0 80%;
+  border-right: 1px solid #727272;
+  margin-top:55px;
+  overflow-y: scroll;
 }
+
 #side-bar{
-    flex: 0 0 19%;
-    height: 100vh;
+  flex: 0 0 20%;
+  height: 100vh;
+  position: fixed;
+  right:0px;
+  top:55px;
+  width:20%;
 }
 #head{
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
 #head-parts{
-  padding-left:900px;
+  margin-right:10px;
 }
 
 .header-names{
@@ -56,7 +70,6 @@ header{
 .list-button{
   text-align: right;
 }
-
 
 /* レイアウト-ログイン */
 .logo-image{
@@ -89,30 +102,45 @@ header{
   color: #fff;
 }
 
+.confirm-button:hover{
+  text-decoration: none;
+  color: #fff;
+}
+
+.box1:hover{
+ transform: scale(1.1);
+}
 .follow-list-button{
-  min-width: 100px;
-  font-size: 13px;
+  min-width: 80px;
+  font-size: 10px;
 }
 
 .follow-page{
-  margin-left: 100px;
+  margin-left: 120px;
 }
 
 .follower-page{
-  margin-left: 100px;
+  margin-left: 120px;
 }
 
 #confirm{
   border-bottom: 1px solid #d3d3d3;
-  width: 110%;
+  width: 100%;
 }
 
 .confirm-search{
-  margin: 0 auto;
+  text-align: center;
 }
 
 .search-page{
-  margin:30px 0 0 65px;
+  margin:30px 0 0 0;
+  min-width: 80px;
+  font-size: 10px;
+}
+
+.search-btn{
+  min-width: 80px;
+  font-size: 12px;
 }
 
 .confirm-button{
@@ -149,10 +177,46 @@ header{
   padding:5px 15px 5px 15px;
 }
 
-.post-content > div{
+/* .post-content > div{
+  display:flex;
+  justify-content:space-between;
+} */
+
+.post1{
   display:flex;
   justify-content:space-between;
 }
+
+.post-button{
+  width:100%;
+  display: flex;
+  justify-content: right;
+  /* align-items: center; */
+}
+
+.like-button{
+  /* display: flex; */
+  /* align-items: center; */
+  margin-left: 15px;
+}
+
+/* いいねボタン */
+.like_btn,
+.un_like_btn{
+  cursor:pointer;
+  width:20px;
+  height:20px;
+}
+
+.un_like,
+.un_like_btn{
+  color:#E2254D;
+}
+
+.trash-button{
+  margin-left: 20px;
+}
+
 
 .post-name .search-name{
   margin-bottom:10px;
@@ -179,6 +243,7 @@ header{
   padding: 20px 40px 40px 40px ;
   border: none; /* 入力欄の枠線 */
   border-radius: 5px; /* 入力欄の角丸 */
+  /* border:2px solid white; */
 }
 
 .post-icon{
@@ -187,21 +252,27 @@ header{
 
 /* 投稿を行うボタン */
 .submit-button{
-  width:35px;
+  width:30px;
   border-radius: 5px;
   margin-left: 30px;
 }
 
+.submit-button:hover{
+  opacity:0.5;
+}
+
 .form-button{
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
 }
 
 .form-edit{
   margin-left: 25px;
 }
 
-
+.form-edit:hover{
+  opacity:0.7;
+}
 
 .trash:hover img {
     content: url('/images/trash-h.png');
@@ -242,10 +313,18 @@ header{
 }
 
 .search-image{
-  height: 40px;
+  height: 35px;
   margin-left:20px;
   border-radius: 5px;
 }
+
+.search-image:hover img{
+  /* content: url('/images/magnifying-glass-solid-black.svg'); */
+  background: url('/images/magnifying-glass-solid-black.svg');
+  opacity:0.5;
+  transition: 0.2s;
+}
+
 
 .search-button{
   display: flex;
@@ -298,16 +377,20 @@ header{
 .follow-btn{
 border-radius: 40px;
 }
+
+.follow-btn:hover{
+  transform: scale(1.1);
+}
 /* アコーディオンメニュー用 */
 
 
 /* プロフィール（ログインユーザー） */
 .profile-icon{
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  margin-left: 160px;
-
+  /* margin-left: 160px; */
+  border: none;
 }
 
 .profile{
@@ -323,6 +406,7 @@ border-radius: 40px;
 .profile-items{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 30px;
 }
 
@@ -337,7 +421,7 @@ border-radius: 40px;
   padding-right: 60px;
   width: 330px;
   background-color: #f5f5f5;
-  border:1px solid #696969;
+  border:none;
   font-size: 13px;
 }
 
@@ -347,14 +431,12 @@ border-radius: 40px;
 }
 
 
-
-
 input[type="file"] {
   display: none;
 }
 
   .custom-file-upload{
-    border:1px solid #696969;
+    border:none;
     padding: 15px 0 15px 0 ;
     background-color: #f5f5f5;
     cursor: pointer;
@@ -380,6 +462,10 @@ input[type="file"] {
 
 .profile-content > div{
  justify-content:space-between;
+}
+
+.profile-image{
+  text-align: center;
 }
 
 .user-form{
@@ -415,10 +501,10 @@ input[type="file"] {
     padding: 40px;
 }
 
-.upbutton{
+/* .upbutton{
   display: block;
   padding-left :780px ;
-}
+} */
 .modal{
     display: none;
     height: 100vh;
@@ -470,14 +556,14 @@ input[type="file"] {
 .menuSub {
         display: none;
         position: absolute;
-        top: 63px;
+        top: 0px;
         right: 0px;
         background-color: #f9f9f9;
         /* min-width: 160px; */
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
         text-align: center;
-        width: 255px;
+        width: 100%;
     }
 
     .menuSub_item {
@@ -488,7 +574,7 @@ input[type="file"] {
     }
 
     .menuSub_item:hover {
-        background-color: #000080;
+        background-color:black;
         color: #f1f1f1;
     }
 
@@ -563,3 +649,69 @@ input[type="file"] {
     border-bottom: solid 3px #fff;
     border-radius: 3px;
   } */
+
+  /* スクロールの量によってモーダル用 */
+  .page-top{
+    position: fixed;
+    bottom:180px;
+    right:118px;
+    display:none;
+    z-index: 5;
+  }
+
+  /* スクロール時のモーダル用  */
+  .create{
+      display: none;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 5;
+  }
+
+  .create__bg{
+      background: rgba(0,0,0,0.8);
+      height: 100vh;
+      position: absolute;
+      width: 100%;
+  }
+  .create__content{
+      background: #fff;
+      border-radius: 15px;
+      left: 50%;
+      /* padding: px; */
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 50%;
+  }
+
+  .create_post{
+    width: 100%;
+  }
+
+  .create-button{
+    width:35px;
+    border-radius: 5px;
+    position: absolute;
+    bottom:10%;
+    right:10%;
+  }
+
+  .form-create{
+    height: 45px;
+    width: 45px;
+}
+
+  .form-create:hover{
+    opacity:0.7;
+  }
+
+.create-input {
+  margin-left: 10px;
+  height:100%; /* 入力欄の高さ */
+  width:70%;
+  margin-top: 10px;
+  border: none; /* 入力欄の枠線 */
+  border-radius: 5px; /* 入力欄の角丸 */
+}

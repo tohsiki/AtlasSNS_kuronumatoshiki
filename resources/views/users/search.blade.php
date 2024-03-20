@@ -9,7 +9,7 @@
         {!! Form::open(['url' => '/search']) !!}
           <div class="search-button">
             {{Form::text('keyword', null,['class' => 'input search-input', 'placeholder' => "ユーザー名"])}}
-            {!! Form::image('images/search.png', 'submit', ['class' => 'search-image']) !!}
+            {!! Form::image('images/magnifying-glass-solid.svg', 'submit', ['class' => 'search-image']) !!}
           </div>
         {{ Form::close() }}
         @if(!empty($search))
@@ -17,9 +17,6 @@
         @endif
           </div>
       </div>
-<!-- 検索結果の表示 -->
-<!-- ②ユーザーの一覧　（あいまい検索後にしぼ込まれる機能付き） -->
-<!-- ログインしているユーザーは表示しないようにif文をつける。 -->
   @foreach($users as $user)
     @if($user->id !== Auth::user()->id)
     <!-- 要素を真ん中に寄せる用 -->

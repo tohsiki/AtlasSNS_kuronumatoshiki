@@ -1,8 +1,5 @@
 @extends('layouts.login')
-
 @section('content')
-
-
 <!--バリデーションのエラーメッセージ-->
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -17,10 +14,13 @@
     <div class="profile-form">
             {!! Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) !!}
             {{ Form::hidden('id', $user->id) }}
+            <div class="profile-image">
+                <img src="{{asset('storage/images/'. Auth::user()->images)}}" class="profile-icon" alt="User Icon">
+            </div>
+
             <!-- ユーザー名 -->
         <div class="profile-items">
-        <img src="{{asset('storage/images/'. Auth::user()->images)}}" class="profile-icon" alt="User Icon">
-            <p class="profile">ユーザー名</p>
+            <p class="profile-itemp">ユーザー名</p>
             {{ Form::input('text', 'upName', $user->username, [ 'class' => 'up-form']) }}
         </div>
         <div class="profile-items">

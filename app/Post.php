@@ -15,16 +15,20 @@ class Post extends Model
         return $this->hasMany('App\User');
     }
 
-    // public function users()
-    // {
-    //     return $this->hasMany('App\User');
-    // }
-
-
-
     public function follows()
     {
     //多対多のリレーション設定
         return $this->belongsToMany('App\User','follows','following_id','followed_id');
+    }
+
+
+    // コメント機能用
+    public function postComments(){
+        return $this->hasMany('App\PostComment');
+    }
+
+     // コメント数
+    public function commentCounts($post_id){
+        return Post::with('postComments')->find($post_id)->postComments();
     }
 }

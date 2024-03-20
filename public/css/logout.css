@@ -13,7 +13,7 @@ body::after{
     width: 100%;
     height: 100%;
     content: "";
-   background-image: linear-gradient(0deg, #FFFF44 0%, #2C7CFF 80%);
+    background-image: linear-gradient(0deg, #FFFF44 0%, #2C7CFF 80%);
     z-index: -1;
 }
 

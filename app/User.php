@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Like;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -60,5 +62,14 @@ class User extends Authenticatable
     //  $isFollow = (boolean) Auth::user()->follows()->where('follow_id',$id)->first();
     // (boolean) Follow::where('following_id', Auth::user()->id)->where('followed_id', $id)->first();
 }
+
+ // いいねしているかどうか
+    public function is_Like($post_id){
+        return Like::where('like_user_id', Auth::id())->where('like_post_id', $post_id)->first(['likes.id']);
+    }
+
+    public function likePostId(){
+        return Like::where('like_user_id', Auth::id());
+    }
 
 }

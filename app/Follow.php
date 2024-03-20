@@ -19,22 +19,4 @@ class Follow extends Model
 
 //
 
-//user_idのユーザーが、フォローしているユーザー(ID:follow_id)を抽出
-//多対多のリレーション
-// public function follows()
-// {
-//     return $this->belongsToMany(User::class, 'follows', 'user_id', 'follow_id');
-// }
-
-//     public function isFollow()
-// {
-//     $id = $this->id;
-//     //この文でテーブルとの照らし合わせを行いtrueもしくはfalseを返す。
-//     $isFollow = (boolean) Auth::user()->follows()->where('following_id', Auth::user()->id)->where('followed_id', $id)->first();
-//     //  $isFollow = (boolean) Auth::user()->follows()->where('follow_id',$id)->first();
-//     // (boolean) Follow::where('following_id', Auth::user()->id)->where('followed_id', $id)->first();
-//     //
-//     return $isFollow;
-// }
-
 }

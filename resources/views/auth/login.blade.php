@@ -5,7 +5,7 @@
 <div class="login-form">
 {!! Form::open(['url' => '/login']) !!}
 
-<p class="login-content">AtlasSNSへようこそ</p>
+<p class="login-content">KNowで今を見に行こう</p>
 
 {{ Form::label('メールアドレス', null, ['class' => 'mail-label']) }}
 {{ Form::text('mail',null,['class' => 'input login-mail']) }}

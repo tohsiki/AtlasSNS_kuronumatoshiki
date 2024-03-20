@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@index');
 
+Route::post('/like/post/{id}', 'PostsController@postLike')->name('post.like');
+Route::post('/unlike/post/{id}', 'PostsController@postUnLike')->name('post.unlike');
 
 // ログインしているユーザーのプロフィール
 Route::get('/profile','UsersController@profile');
@@ -66,13 +68,11 @@ Route::post('/post','PostsController@post');
 Route::post('/posts/update','PostsController@update');
 
 
-
 // 投稿を削除するルーティング
 Route::get('/posts/{id}/delete','PostsController@delete');
 
 //ログアウトのURLを追加した。
 Route::get('/logout', 'Auth\LoginController@logout');
-
 
 // フォロー用のルーティングは以下にまとめる。
 // フォロー用のルーティング
@@ -80,4 +80,10 @@ Route::post('/follow', 'FollowsController@follow')->name('follow');
 
 // フォロー解除用のルーティング
 Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
+
+Route::namespace('BulletinBoard')->group(function(){
+      Route::post('/comment/create', 'PostsController@commentCreate')->name('comment.create');
+      Route::post('/like/post/{id}', 'PostsController@postLike')->name('post.like');
+      Route::post('/unlike/post/{id}', 'PostsController@postUnLike')->name('post.unlike');
+  });
 });

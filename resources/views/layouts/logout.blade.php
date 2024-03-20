@@ -30,8 +30,8 @@
 </head>
 <body>
   <header>
-    <h1><img src="images/atlas.png"></h1>
-    <p>Social Network Service</p>
+    <h1><img src="images/know.white.png"></h1>
+    <p>stay hungry stay foolish</p>
   </header>
   <div id="container">
     @yield('content')

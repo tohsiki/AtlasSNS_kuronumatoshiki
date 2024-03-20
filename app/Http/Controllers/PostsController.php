@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
+use App\Like;
 use App\Follow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,12 +19,11 @@ class PostsController extends Controller
         $followed_id = Auth::user()->follows()->pluck('followed_id')->toArray();
         $login_user = Auth::user()->id;
         $followed_user = User::whereIn('id',$followed_id)->get();
-        // $followed_user = User::with('post')->whereIn('id',[ $login_user,$followed_id])->get();
-        // ここにログインしているユーザー
-        // $followed_post = Post::with('user')->whereIn('user_id',[ $login_user,$followed_id])->get();
+        $like = new Like;
+        // $likeの宣言を追加する。
         $followed_post = Post::with('user')->whereIn('user_id', array_merge($followed_id, [$login_user]))->orderBy('created_at', 'desc')->get();
 
-        return view('posts.index',['posts'=>$posts,'followed_user'=>$followed_user,'followed_post'=>$followed_post]);
+        return view('posts.index',['posts'=>$posts,'followed_user'=>$followed_user,'followed_post'=>$followed_post,'like'=>$like]);
     }
 
 
@@ -80,4 +80,32 @@ class PostsController extends Controller
         Post::where('id', $id)->delete();
         return redirect('/top');
     }
+
+    // いいね関係
+    public function postLike(Request $request){
+        $user_id = Auth::id();
+        $post_id = $request->post_id;
+
+        $like = new Like;
+
+        $like->like_user_id = $user_id;
+        $like->like_post_id = $post_id;
+        $like->save();
+
+        return response()->json();
+    }
+
+    public function postUnLike(Request $request){
+        $user_id = Auth::id();
+        $post_id = $request->post_id;
+
+        $like = new Like;
+
+        $like->where('like_user_id', $user_id)
+             ->where('like_post_id', $post_id)
+             ->delete();
+
+        return response()->json();
+    }
+
 }
